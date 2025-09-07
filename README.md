@@ -1,56 +1,52 @@
-# Modern Portfolio Website
+# Muthuraja S - Cyberpunk Portfolio Website
 
-A comprehensive full-stack portfolio website built with Node.js, Express, MongoDB, and EJS templating. Features a modern design, dark/light mode, animated particles background, and complete content management system.
+A personal portfolio website with a cyberpunk theme built with Node.js, Express, and EJS templating. Features a striking black and red design, custom cursor effects, animated particles background, and comprehensive sections showcasing my skills and experience as a Software Developer.
 
-![Portfolio Preview](https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800)
+![Portfolio Preview](https://via.placeholder.com/800x400/000000/ff0000?text=Cyberpunk+Portfolio)
 
 ## 🚀 Features
 
 ### Frontend Features
+- **Cyberpunk Theme** - Black background with red/cyan accents and futuristic styling
+- **Custom Cursor Effects** - SVG-based cyberpunk cursor with hover animations
 - **Interactive Particle Background** - Animated particles with dynamic connections
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
-- **Dark/Light Mode** - System preference detection with manual toggle
-- **Smooth Animations** - Scroll-triggered animations and hover effects
 - **Typewriter Effect** - Dynamic text animation on hero section
 - **SEO Optimized** - Proper meta tags and structured data
 
 ### Backend Features
-- **Express.js Server** - Robust backend with proper middleware
-- **MongoDB Integration** - Database for projects, timeline, and contact data
-- **Contact Form** - Functional form with email integration
-- **Admin Panel** - Content management system
-- **Security** - Rate limiting, CORS, helmet security
+- **Express.js Server** - Robust backend with static data routing
+- **Contact Form** - Functional form with validation
+- **Static Data Management** - No database required, all data stored in routes
 
 ### Sections
-- **Home** - Hero section with animated background
+- **Home** - Hero section with animated background and introduction
 - **About Me** - Professional bio with skills showcase
-- **Resume** - MongoDB-powered resume with PDF download
-- **Projects** - Filterable project gallery with search
-- **Timeline** - Chronological experience and education
-- **Contact** - Functional contact form with validation
+- **Resume** - Complete resume with education and experience
+- **Projects** - Project showcase including CargoLink and portfolio
+- **Timeline** - Chronological experience and education journey
+- **Contact** - Contact form with personal information
 
 ## 🛠️ Tech Stack
 
 - **Backend**: Node.js, Express.js
-- **Database**: MongoDB with Mongoose
 - **Templating**: EJS
-- **Styling**: Tailwind CSS
-- **JavaScript**: Vanilla JS with modern ES6+
-- **Security**: Helmet, CORS, Rate Limiting
-- **Email**: Nodemailer integration
+- **Styling**: Tailwind CSS with custom cyberpunk overrides
+- **JavaScript**: Vanilla JS with modern ES6+ and custom cursor effects
+- **Theme**: Cyberpunk aesthetic with black/red/cyan color scheme
+- **Data**: Static arrays (no database required)
 
 ## 📋 Prerequisites
 
 - Node.js (v18 or higher)
-- MongoDB (local or cloud)
 - Git
 
 ## 🚀 Quick Start
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/portfolio-website.git
-   cd portfolio-website
+   git clone https://github.com/Black-and-Yellow/Portfolio_Website.git
+   cd Portfolio_Website
    ```
 
 2. **Install dependencies**
@@ -58,178 +54,138 @@ A comprehensive full-stack portfolio website built with Node.js, Express, MongoD
    npm install
    ```
 
-3. **Environment Setup**
-   
-   Copy the `.env` file and update the values:
+3. **Start the development server**
    ```bash
-   cp .env .env.local
-   ```
-   
-   Update the following variables in `.env`:
-   ```
-   MONGODB_URI=mongodb://localhost:27017/portfolio
-   SESSION_SECRET=your-super-secret-session-key
-   EMAIL_HOST=smtp.gmail.com
-   EMAIL_PORT=587
-   EMAIL_USER=your-email@gmail.com
-   EMAIL_PASS=your-app-password
-   ADMIN_USERNAME=admin
-   ADMIN_PASSWORD=your-secure-password
-   ```
-
-4. **Start MongoDB**
-   
-   Make sure MongoDB is running on your system or update the connection string for a cloud database.
-
-5. **Seed the database** (optional)
-   ```bash
-   node scripts/seedDatabase.js
-   ```
-
-6. **Start the development server**
-   ```bash
-   npm run dev
-   # or
    npm start
+   # or
+   node server.js
    ```
 
-7. **Open your browser**
+4. **Open your browser**
    
-   Navigate to `http://localhost:3000`
+   Navigate to `http://localhost:3001`
+
+## 🎯 About This Portfolio
+
+This portfolio showcases the work and experience of **Muthuraja S**, a passionate Software Developer with expertise in:
+
+- **Programming Languages**: Java, Python, JavaScript, C++
+- **Web Technologies**: HTML, CSS, React.js, Node.js, Express.js
+- **Databases**: MySQL, PostgreSQL, MongoDB
+- **Tools & Frameworks**: Git, Docker, Spring Boot, Bootstrap, Tailwind CSS
+
+### Featured Project: CargoLink
+A comprehensive logistics platform for connecting drivers and customers, featuring real-time tracking, secure payment integration, and efficient route optimization.
 
 ## 📁 Project Structure
 
 ```
-portfolio-website/
+Portfolio_Website/
 ├── data/
-│   └── seedData.js          # Sample data for database
+│   └── seedData.js          # Legacy sample data (not used)
 ├── models/
-│   ├── Contact.js           # Contact form model
-│   ├── Project.js           # Projects model
-│   ├── Resume.js            # Resume data model
-│   └── Timeline.js          # Timeline entries model
+│   ├── Contact.js           # Contact form model (legacy)
+│   ├── Project.js           # Projects model (legacy)
+│   ├── Resume.js            # Resume data model (legacy)
+│   └── Timeline.js          # Timeline entries model (legacy)
 ├── public/
 │   ├── css/
-│   │   └── main.css         # Custom styles
+│   │   └── main.css         # Custom cyberpunk styles
+│   ├── img/
+│   │   ├── P.png           # Profile logo
+│   │   └── Profile.jpg     # Profile picture
 │   └── js/
 │       ├── contact.js       # Contact form functionality
 │       ├── main.js          # Main JavaScript
 │       ├── particles.js     # Particle animation
 │       └── typewriter.js    # Typewriter effect
 ├── routes/
-│   ├── admin.js             # Admin panel routes
+│   ├── admin.js             # Admin routes (legacy)
 │   ├── contact.js           # Contact form routes
-│   ├── home.js              # Main page routes
-│   └── projects.js          # Projects routes
+│   ├── home.js              # Main data source - all static content
+│   └── projects.js          # Projects routes with static data
 ├── scripts/
-│   └── seedDatabase.js      # Database seeding script
+│   └── seedDatabase.js      # Database seeding script (legacy)
 ├── views/
 │   ├── pages/
-│   │   ├── about.ejs        # About page
+│   │   ├── about.ejs        # About page with skills
 │   │   ├── contact.ejs      # Contact page
-│   │   ├── index.ejs        # Home page
-│   │   ├── projects.ejs     # Projects page
+│   │   ├── index.ejs        # Home page with hero section
+│   │   ├── projects.ejs     # Projects showcase
 │   │   ├── resume.ejs       # Resume page
 │   │   └── timeline.ejs     # Timeline page
 │   └── partials/
 │       ├── footer.ejs       # Footer component
-│       ├── head.ejs         # Head section
+│       ├── head.ejs         # Head section with cyberpunk styling
 │       └── header.ejs       # Header/Navigation
-├── .env                     # Environment variables
-├── server.js                # Main server file
+├── server.js                # Main server file (port 3001)
 └── package.json             # Project dependencies
 ```
 
 ## 🎨 Customization
 
+### Cyberpunk Theme
+- **Colors**: Primary black (#000000) background with red (#ff0000) and cyan accents
+- **Cursor**: Custom SVG cyberpunk cursor with hover effects
+- **Typography**: Futuristic font styling with glow effects
+- **Animations**: Smooth transitions and particle effects
+
 ### Personal Information
-1. Update personal details in the EJS templates
-2. Replace placeholder images with your photos
-3. Update social media links in the footer and header
-4. Modify the resume data in the Resume model
+1. Update personal details in `routes/home.js`
+2. Replace profile images in `public/img/`
+3. Update social media links in the header and footer
+4. Modify resume data in the home route
 
-### Styling
-1. Colors can be customized in the Tailwind config in `head.ejs`
-2. Additional custom styles in `public/css/main.css`
-3. Animations and transitions can be modified in the CSS and JS files
+### Content Management
+- All content is stored in `routes/home.js` as static arrays
+- Projects data in `routes/projects.js`
+- No database required - easy to modify and deploy
+- Timeline entries categorized by type (education, experience, achievement)
 
-### Content
-1. Add your projects to the database using the admin panel or seed script
-2. Update timeline entries with your experience
-3. Customize the about section content
-4. Update SEO meta tags in the head partial
+## � Deployment
 
-## 🔧 Configuration
+This portfolio is ready for deployment on various platforms:
 
-### Email Setup (for contact form)
-1. Create an app password for Gmail or configure SMTP settings
-2. Update the email configuration in `.env`
-3. The contact form will automatically send emails when configured
+### Recommended Platforms
+1. **Netlify** - Easy deployment with GitHub integration
+2. **Vercel** - Excellent for Node.js applications
+3. **Render** - Free tier available for Node.js apps
+4. **Railway** - Simple deployment with automatic HTTPS
 
-### Admin Panel
-1. Access at `/admin` with credentials from `.env`
-2. Manage projects, view messages, and update content
-3. Default credentials: admin/admin123 (change these!)
+### GitHub Repository
+- Repository: `https://github.com/Black-and-Yellow/Portfolio_Website`
+- Owner: Black-and-Yellow
+- Branch: main
 
-### Database
-1. The app works with both local MongoDB and cloud databases
-2. Update `MONGODB_URI` in `.env` for your database
-3. Run the seed script to populate with sample data
-
-## 🚀 Deployment
-
-### Preparation
-1. Set `NODE_ENV=production` in your environment
-2. Update all placeholder URLs and information
-3. Configure email settings for the contact form
-4. Set secure session secrets and admin passwords
-
-### Deployment Options
-- **Heroku**: Add MongoDB Atlas addon
-- **Vercel**: Use with MongoDB Atlas
-- **DigitalOcean**: App Platform with managed database
-- **AWS**: EC2 with RDS/DocumentDB
-
-### Environment Variables for Production
-```
-NODE_ENV=production
-MONGODB_URI=your-production-database-url
-SESSION_SECRET=your-very-secure-session-secret
-EMAIL_HOST=your-smtp-host
-EMAIL_USER=your-email
-EMAIL_PASS=your-app-password
-ADMIN_USERNAME=your-admin-username
-ADMIN_PASSWORD=your-secure-admin-password
-```
+### Deployment Steps
+1. Your code is already pushed to GitHub
+2. Choose a deployment platform
+3. Connect your GitHub repository
+4. Set build command: `npm install`
+5. Set start command: `npm start` or `node server.js`
+6. Deploy and get your live URL!
 
 ## 📱 Mobile Responsiveness
 
 The website is fully responsive with:
-- Mobile-first design approach
+- Mobile-first design approach with cyberpunk aesthetics
 - Hamburger menu for mobile navigation
-- Touch-friendly interactions
+- Touch-friendly interactions with custom cursor on desktop
 - Optimized images and performance
 - Accessible form controls
+- Responsive particle effects
 
 ## ⚡ Performance Features
 
-- **Lazy Loading**: Images load as needed
-- **Optimized Animations**: Reduced motion support
-- **Efficient Particles**: Performance-optimized background
-- **Compression**: Gzip compression enabled
-- **Caching**: Proper cache headers
-- **Minification**: CSS and JS optimization
-
-## 🔒 Security Features
-
-- **Helmet.js**: Security headers
-- **Rate Limiting**: API protection
-- **CORS**: Cross-origin configuration
-- **Input Validation**: Form security
-- **Session Security**: Secure cookie settings
-- **Content Security Policy**: XSS protection
+- **Optimized Animations**: Smooth cyberpunk cursor effects
+- **Efficient Particles**: Performance-optimized background animation
+- **Static Data**: No database queries for faster loading
+- **Responsive Design**: Tailwind CSS for optimal performance
+- **Modern JavaScript**: ES6+ features for better performance
 
 ## 🤝 Contributing
+
+Feel free to fork this repository and create your own cyberpunk portfolio! 
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/new-feature`
@@ -239,27 +195,24 @@ The website is fully responsive with:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
 - **Tailwind CSS** for the utility-first CSS framework
-- **Pexels** for the stock photography
-- **Font Awesome** for the icons
-- **MongoDB** for the database solution
-- **Express.js** community for the excellent framework
+- **Express.js** for the robust backend framework
+- **EJS** for the templating engine
+- **Cyberpunk aesthetics** for the visual inspiration
 
-## 📞 Support
+## 📞 Contact
 
-If you have any questions or need help with setup:
-
-1. Check the documentation above
-2. Look through existing issues
-3. Create a new issue with detailed information
-4. Contact: [your.email@example.com](mailto:your.email@example.com)
+**Muthuraja S**
+- Email: [muthuraja.dev@gmail.com](mailto:muthuraja.dev@gmail.com)
+- GitHub: [Black-and-Yellow](https://github.com/Black-and-Yellow)
+- Portfolio: [Live Demo](https://your-portfolio-url.com)
 
 ---
 
-**Made with ❤️ and lots of ☕**
+**Built with 💻 and cyberpunk vibes 🚀**
 
-*This portfolio website demonstrates modern full-stack development practices and can serve as a template for other developers looking to showcase their work professionally.*
+*This portfolio demonstrates modern web development practices with a unique cyberpunk aesthetic, showcasing both technical skills and creative design.*
