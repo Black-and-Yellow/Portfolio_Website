@@ -1,6 +1,6 @@
 # Muthuraja S - Cyberpunk Portfolio Website
 
-A personal portfolio website with a cyberpunk theme built with Node.js, Express, and EJS templating. Features a striking black and red design, custom cursor effects, animated particles background, and comprehensive sections showcasing my skills and experience as a Software Developer.
+A personal portfolio website with a cyberpunk theme built using static HTML, CSS, and JavaScript. Features a striking black and red design, custom cursor effects, animated particles background, and comprehensive sections showcasing my skills and experience as a Software Developer.
 
 ![Portfolio Preview](https://via.placeholder.com/800x400/000000/ff0000?text=Cyberpunk+Portfolio)
 
@@ -12,12 +12,13 @@ A personal portfolio website with a cyberpunk theme built with Node.js, Express,
 - **Interactive Particle Background** - Animated particles with dynamic connections
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 - **Typewriter Effect** - Dynamic text animation on hero section
-- **SEO Optimized** - Proper meta tags and structured data
+- **Static HTML Pages** - Fast loading, no server required
 
-### Backend Features
-- **Express.js Server** - Robust backend with static data routing
-- **Contact Form** - Functional form with validation
-- **Static Data Management** - No database required, all data stored in routes
+### Architecture
+- **Static HTML** - Pure HTML/CSS/JavaScript for fast loading and easy hosting
+- **Tailwind CSS** - Utility-first CSS framework with custom cyberpunk overrides
+- **Vanilla JavaScript** - Custom cursor effects, particle animations, and interactions
+- **GitHub Pages Ready** - Can be hosted directly on GitHub Pages or any static host
 
 ### Sections
 - **Home** - Hero section with animated background and introduction
@@ -29,17 +30,16 @@ A personal portfolio website with a cyberpunk theme built with Node.js, Express,
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Node.js, Express.js
-- **Templating**: EJS
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Styling**: Tailwind CSS with custom cyberpunk overrides
-- **JavaScript**: Vanilla JS with modern ES6+ and custom cursor effects
+- **Animations**: Custom CSS animations and JavaScript effects
 - **Theme**: Cyberpunk aesthetic with black/red/cyan color scheme
-- **Data**: Static arrays (no database required)
+- **Hosting**: Static hosting compatible (GitHub Pages, Netlify, Vercel)
 
 ## 📋 Prerequisites
 
-- Node.js (v18 or higher)
-- Git
+- A modern web browser
+- Git (for cloning and deployment)
 
 ## 🚀 Quick Start
 
@@ -49,21 +49,24 @@ A personal portfolio website with a cyberpunk theme built with Node.js, Express,
    cd Portfolio_Website
    ```
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm start
-   # or
-   node server.js
-   ```
-
-4. **Open your browser**
+2. **Open in browser**
    
-   Navigate to `http://localhost:3001`
+   Simply open `index.html` in your web browser, or use a local server:
+   
+   ```bash
+   # Using Python
+   python -m http.server 8000
+   
+   # Using Node.js (if you have it)
+   npx http-server
+   
+   # Using PHP
+   php -S localhost:8000
+   ```
+
+3. **Access your portfolio**
+   
+   Navigate to `http://localhost:8000` (if using a local server) or just open the HTML file directly.
 
 ## 🎯 About This Portfolio
 
@@ -81,13 +84,6 @@ A comprehensive logistics platform for connecting drivers and customers, featuri
 
 ```
 Portfolio_Website/
-├── data/
-│   └── seedData.js          # Legacy sample data (not used)
-├── models/
-│   ├── Contact.js           # Contact form model (legacy)
-│   ├── Project.js           # Projects model (legacy)
-│   ├── Resume.js            # Resume data model (legacy)
-│   └── Timeline.js          # Timeline entries model (legacy)
 ├── public/
 │   ├── css/
 │   │   └── main.css         # Custom cyberpunk styles
@@ -99,27 +95,13 @@ Portfolio_Website/
 │       ├── main.js          # Main JavaScript
 │       ├── particles.js     # Particle animation
 │       └── typewriter.js    # Typewriter effect
-├── routes/
-│   ├── admin.js             # Admin routes (legacy)
-│   ├── contact.js           # Contact form routes
-│   ├── home.js              # Main data source - all static content
-│   └── projects.js          # Projects routes with static data
-├── scripts/
-│   └── seedDatabase.js      # Database seeding script (legacy)
-├── views/
-│   ├── pages/
-│   │   ├── about.ejs        # About page with skills
-│   │   ├── contact.ejs      # Contact page
-│   │   ├── index.ejs        # Home page with hero section
-│   │   ├── projects.ejs     # Projects showcase
-│   │   ├── resume.ejs       # Resume page
-│   │   └── timeline.ejs     # Timeline page
-│   └── partials/
-│       ├── footer.ejs       # Footer component
-│       ├── head.ejs         # Head section with cyberpunk styling
-│       └── header.ejs       # Header/Navigation
-├── server.js                # Main server file (port 3001)
-└── package.json             # Project dependencies
+├── about.html              # About page with skills
+├── contact.html            # Contact page with form
+├── index.html              # Home page with hero section
+├── projects.html           # Projects showcase
+├── resume.html             # Resume page
+├── timeline.html           # Timeline page
+└── README.md               # Project documentation
 ```
 
 ## 🎨 Customization
@@ -137,33 +119,50 @@ Portfolio_Website/
 4. Modify resume data in the home route
 
 ### Content Management
-- All content is stored in `routes/home.js` as static arrays
-- Projects data in `routes/projects.js`
-- No database required - easy to modify and deploy
-- Timeline entries categorized by type (education, experience, achievement)
+- All content is directly embedded in HTML files
+- Easy to modify without any backend setup
+- Images stored in `public/img/` directory
+- Styles customizable through CSS and Tailwind classes
 
 ## � Deployment
 
 This portfolio is ready for deployment on various platforms:
 
-### Recommended Platforms
-1. **Netlify** - Easy deployment with GitHub integration
-2. **Vercel** - Excellent for Node.js applications
-3. **Render** - Free tier available for Node.js apps
-4. **Railway** - Simple deployment with automatic HTTPS
+## 🚀 Deployment
+
+This portfolio is ready for deployment on various static hosting platforms:
+
+### GitHub Pages (Recommended - Free)
+1. Go to your repository settings
+2. Navigate to "Pages" section
+3. Select "Deploy from a branch"
+4. Choose "main" branch and "/ (root)"
+5. Your site will be live at `https://yourusername.github.io/Portfolio_Website`
+
+### Other Hosting Options
+1. **Netlify** - Drag and drop deployment
+2. **Vercel** - Connect GitHub repository
+3. **Surge.sh** - Command line deployment
+4. **Firebase Hosting** - Google's hosting service
+
+### Quick Deployment Commands
+
+**Netlify CLI:**
+```bash
+npm install -g netlify-cli
+netlify deploy --prod --dir .
+```
+
+**Surge.sh:**
+```bash
+npm install -g surge
+surge .
+```
 
 ### GitHub Repository
 - Repository: `https://github.com/Black-and-Yellow/Portfolio_Website`
 - Owner: Black-and-Yellow
 - Branch: main
-
-### Deployment Steps
-1. Your code is already pushed to GitHub
-2. Choose a deployment platform
-3. Connect your GitHub repository
-4. Set build command: `npm install`
-5. Set start command: `npm start` or `node server.js`
-6. Deploy and get your live URL!
 
 ## 📱 Mobile Responsiveness
 

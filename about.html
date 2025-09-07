@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Muthuraja S - Computer Science Student & Full-Stack Developer">
+    <meta name="keywords" content="web developer, full-stack, portfolio, javascript, react, node.js, mongodb">
+    <meta name="author" content="Muthuraja S">
+    
+    <title>About Me - Muthuraja S Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/css/main.css">
+    
+    <!-- Cyberpunk Theme Override -->
+    <style>
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            overflow-x: hidden !important;
+            background-color: #000000 !important;
+            color: #e0e0e0 !important;
+            cursor: none !important;
+        }
+        
+        /* Custom Cyberpunk Cursor */
+        #cyber-cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ff0000;
+            border-radius: 50%;
+            background: rgba(255, 0, 0, 0.1);
+            box-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #ff0000,
+                inset 0 0 10px rgba(255, 0, 0, 0.3);
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: all 0.15s ease;
+            animation: pulse-cursor 2s infinite;
+        }
+        
+        #cyber-cursor::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #ff0000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px #ff0000;
+        }
+        
+        #cyber-cursor.hover {
+            width: 40px;
+            height: 40px;
+            border-color: #00ffff;
+            background: rgba(0, 255, 255, 0.15);
+            box-shadow: 
+                0 0 15px #00ffff,
+                0 0 30px #00ffff,
+                0 0 45px #00ffff,
+                inset 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        #cyber-cursor.hover::before {
+            background: #00ffff;
+            box-shadow: 0 0 12px #00ffff;
+        }
+        
+        @keyframes pulse-cursor {
+            0%, 100% {
+                box-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000,
+                    0 0 30px #ff0000,
+                    inset 0 0 10px rgba(255, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 0 15px #ff0000,
+                    0 0 30px #ff0000,
+                    0 0 45px #ff0000,
+                    inset 0 0 15px rgba(255, 0, 0, 0.5);
+            }
+        }
+        
+        /* Navigation styles */
+        .nav-link {
+            color: #e0e0e0 !important;
+            position: relative !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+        }
+        
+        .nav-link::before {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: #ff0000 !important;
+            transition: width 0.3s ease !important;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 100% !important;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ff0000 !important;
+            background: rgba(255, 0, 0, 0.05) !important;
+        }
+        
+        /* Header styles */
+        #header {
+            background-color: rgba(10, 10, 10, 0.9) !important;
+            border-bottom: 1px solid #ff0000 !important;
+        }
+        
+        /* Override any white/gray backgrounds */
+        .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-200, .bg-gray-800 {
+            background-color: #000000 !important;
+        }
+        
+        .text-black, .text-gray-900 {
+            color: #e0e0e0 !important;
+        }
+        
+        /* Skill cards */
+        .skill-card {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%) !important;
+            border: 1px solid #ff0000 !important;
+            color: #e0e0e0 !important;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-8px) !important;
+            border-color: #ff0000 !important;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3) !important;
+        }
+    </style>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div id="cyber-cursor"></div>
+    
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <span class="text-xl font-bold text-white">Muthuraja S</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="resume.html" class="nav-link">Resume</a>
+                    <a href="timeline.html" class="nav-link">Timeline</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-red-500 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <div class="space-y-2">
+                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <a href="about.html" class="mobile-nav-link active">About</a>
+                    <a href="resume.html" class="mobile-nav-link">Resume</a>
+                    <a href="timeline.html" class="mobile-nav-link">Timeline</a>
+                    <a href="projects.html" class="mobile-nav-link">Projects</a>
+                    <a href="contact.html" class="mobile-nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16">
+        <!-- About Hero Section -->
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Content -->
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                            About <span class="text-red-500">Me</span>
+                        </h1>
+                        
+                        <div class="space-y-6 text-lg text-gray-300">
+                            <p>
+                                Hello! I'm Muthuraja S, a dedicated and enthusiastic Computer Science student with a strong passion for full-stack development. 
+                                Currently pursuing my B.Tech in Computer Science and Engineering at Indian Institute of Information Technology, Sri City.
+                            </p>
+                            
+                            <p>
+                                I'm committed to continuous learning and applying technical skills to build efficient and scalable web applications. 
+                                My expertise spans across technologies like JavaScript, Node.js, MongoDB, and modern web frameworks.
+                            </p>
+                            
+                            <p>
+                                I'm eager to contribute to dynamic teams and solve real-world problems through innovative software solutions. 
+                                Currently serving as Design Team Core at Nexsync and WebDev Lead, where I create compelling visual content and lead development initiatives.
+                            </p>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="flex space-x-6 mt-8">
+                            <a href="https://github.com/Black-and-Yellow" target="_blank" rel="noopener noreferrer" 
+                               class="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/muthuraja-s-6798b0314" target="_blank" rel="noopener noreferrer" 
+                               class="flex items-center space-x-2 text-gray-400 hover:text-cyan-500 transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Image -->
+                    <div class="flex justify-center lg:justify-end">
+                        <div class="relative">
+                            <img src="/public/img/Profile.jpg" 
+                                 alt="Muthuraja S" 
+                                 class="w-80 h-80 rounded-2xl object-cover shadow-2xl hover:scale-105 transition-transform duration-500 border-2 border-red-500/30">
+                            
+                            <!-- Decorative elements -->
+                            <div class="absolute -top-4 -left-4 w-20 h-20 bg-red-500/20 rounded-full blur-xl"></div>
+                            <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-cyan-500/20 rounded-full blur-xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                        Skills & Technologies
+                    </h2>
+                    <p class="text-lg text-gray-400">
+                        Technologies I love working with
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Programming Languages -->
+                    <div class="skill-card p-6 rounded-xl transition-all duration-300 hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-red-500/20 text-red-500 rounded-full mb-4">
+                                <i class="fas fa-code text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-4">Programming Languages</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>C</li>
+                                <li>Java</li>
+                                <li>Python</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Web Technologies -->
+                    <div class="skill-card p-6 rounded-xl transition-all duration-300 hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-cyan-500/20 text-cyan-500 rounded-full mb-4">
+                                <i class="fas fa-laptop-code text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-4">Web Technologies</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>HTML/CSS</li>
+                                <li>Node.js</li>
+                                <li>Express.js</li>
+                                <li>Git/GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Databases -->
+                    <div class="skill-card p-6 rounded-xl transition-all duration-300 hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 text-green-500 rounded-full mb-4">
+                                <i class="fas fa-database text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-4">Databases</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>MySQL</li>
+                                <li>MongoDB</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Coursework -->
+                    <div class="skill-card p-6 rounded-xl transition-all duration-300 hover:-translate-y-2">
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 text-purple-500 rounded-full mb-4">
+                                <i class="fas fa-graduation-cap text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-4">Coursework</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>DBMS</li>
+                                <li>OOP</li>
+                                <li>Operating Systems</li>
+                                <li>Computer Networks</li>
+                                <li>Data Structures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Summary -->
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                        Achievements & Leadership
+                    </h2>
+                    <p class="text-lg text-gray-400">
+                        Key highlights from my academic and professional journey
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center bg-gray-900 p-6 rounded-xl border border-red-500/20">
+                        <div class="text-4xl font-bold text-red-500 mb-2">2+</div>
+                        <div class="text-xl font-semibold text-white mb-2">Years Experience</div>
+                        <div class="text-gray-400">Full-stack development</div>
+                    </div>
+                    
+                    <div class="text-center bg-gray-900 p-6 rounded-xl border border-cyan-500/20">
+                        <div class="text-4xl font-bold text-cyan-500 mb-2">3+</div>
+                        <div class="text-xl font-semibold text-white mb-2">Leadership Roles</div>
+                        <div class="text-gray-400">Design & WebDev positions</div>
+                    </div>
+                    
+                    <div class="text-center bg-gray-900 p-6 rounded-xl border border-green-500/20">
+                        <div class="text-4xl font-bold text-green-500 mb-2">2+</div>
+                        <div class="text-xl font-semibold text-white mb-2">Hackathons</div>
+                        <div class="text-gray-400">Google Cloud & AgriAI</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-red-500/20 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact Info</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-envelope mr-2 text-red-500"></i>muthuoffl6@gmail.com</p>
+                        <p><i class="fas fa-phone mr-2 text-red-500"></i>+91 9360944839</p>
+                        <p><i class="fas fa-map-marker-alt mr-2 text-red-500"></i>Tada, Sricity, AP</p>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-gray-400 hover:text-red-500 transition-colors duration-300">Home</a>
+                        <a href="resume.html" class="block text-gray-400 hover:text-red-500 transition-colors duration-300">Resume</a>
+                        <a href="projects.html" class="block text-gray-400 hover:text-red-500 transition-colors duration-300">Projects</a>
+                        <a href="contact.html" class="block text-gray-400 hover:text-red-500 transition-colors duration-300">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/Black-and-Yellow" target="_blank" 
+                           class="text-gray-400 hover:text-white text-xl transition-colors duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/muthuraja-s-6798b0314" target="_blank" 
+                           class="text-gray-400 hover:text-blue-500 text-xl transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:muthuoffl6@gmail.com" 
+                           class="text-gray-400 hover:text-red-500 text-xl transition-colors duration-300">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Muthuraja S. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/public/js/main.js"></script>
+    
+    <!-- Cyberpunk Cursor Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create custom cursor
+            const cursor = document.getElementById('cyber-cursor');
+            
+            // Mouse move handler
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            // Smooth cursor animation
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.1;
+                cursorY += (mouseY - cursorY) * 0.1;
+                
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+            
+            // Hover effects
+            const interactiveElements = 'a, button, input, select, textarea, .cursor-pointer';
+            
+            document.addEventListener('mouseenter', function(e) {
+                if (e.target.matches(interactiveElements)) {
+                    cursor.classList.add('hover');
+                }
+            }, true);
+            
+            document.addEventListener('mouseleave', function(e) {
+                if (e.target.matches(interactiveElements)) {
+                    cursor.classList.remove('hover');
+                }
+            }, true);
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
