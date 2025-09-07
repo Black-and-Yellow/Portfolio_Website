@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of a full-stack developer showcasing projects, skills, and experience in web development.">
+    <meta name="keywords" content="web developer, full-stack, portfolio, javascript, react, node.js, mongodb">
+    <meta name="author" content="Your Name">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">~
+    <meta property="og:url" content="https://yourportfolio.com/">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="Professional portfolio showcasing full-stack development projects and expertise.">
+    <meta property="og:image" content="/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourportfolio.com/">
+    <meta property="twitter:title" content="<%= title %>">
+    <meta property="twitter:description" content="Professional portfolio showcasing full-stack development projects and expertise.">
+    <meta property="twitter:image" content="/images/og-image.jpg">
+
+    <title><%= title %></title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d'
+                        },
+                        secondary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12'
+                        },
+                        accent: {
+                            50: '#fdf4ff',
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            300: '#f0abfc',
+                            400: '#e879f9',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            700: '#a21caf',
+                            800: '#86198f',
+                            900: '#701a75'
+                        },
+                        cyber: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e'
+                        },
+                        gray: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
+                        cyber: ['Orbitron', 'JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-in-left': 'slideInLeft 0.5s ease-out',
+                        'slide-in-right': 'slideInRight 0.5s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'glitch': 'glitch 0.3s ease-in-out infinite alternate',
+                        'matrix': 'matrix 20s linear infinite',
+                        'scan': 'scan 2s linear infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glitch: {
+                            '0%': { transform: 'translate(0)' },
+                            '20%': { transform: 'translate(-2px, 2px)' },
+                            '40%': { transform: 'translate(-2px, -2px)' },
+                            '60%': { transform: 'translate(2px, 2px)' },
+                            '80%': { transform: 'translate(2px, -2px)' },
+                            '100%': { transform: 'translate(0)' }
+                        },
+                        matrix: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100vh)' }
+                        },
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100vh)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS (Load AFTER Tailwind to override) -->
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <!-- Cyberpunk Theme Override -->
+    <style>
+        /* Simple cyberpunk theme overrides */
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            overflow-x: hidden !important;
+            background-color: #000000 !important;
+            color: #e0e0e0 !important;
+            cursor: none !important;
+        }
+        
+        /* Cyberpunk Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+        }
+        .glitch::before {
+            text-shadow: -2px 0 magenta;
+            clip: rect(0, 900px, 0, 0);
+            animation: glitch 2s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            text-shadow: -2px 0 cyan;
+            clip: rect(0, 900px, 0, 0);
+            animation: glitch 2s infinite linear alternate-reverse;
+        }
+        @keyframes glitch {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            20% { clip: rect(12px, 9999px, 14px, 0); }
+            40% { clip: rect(82px, 9999px, 84px, 0); }
+            60% { clip: rect(32px, 9999px, 34px, 0); }
+            80% { clip: rect(62px, 9999px, 64px, 0); }
+            100% { clip: rect(22px, 9999px, 24px, 0); }
+        }
+        
+        /* Custom Cyberpunk Cursor */
+        #cyber-cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ff0000;
+            border-radius: 50%;
+            background: rgba(255, 0, 0, 0.1);
+            box-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #ff0000,
+                inset 0 0 10px rgba(255, 0, 0, 0.3);
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: all 0.15s ease;
+            animation: pulse-cursor 2s infinite;
+        }
+        
+        #cyber-cursor::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #ff0000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px #ff0000;
+        }
+        
+        #cyber-cursor.hover {
+            width: 40px;
+            height: 40px;
+            border-color: #00ffff;
+            background: rgba(0, 255, 255, 0.15);
+            box-shadow: 
+                0 0 15px #00ffff,
+                0 0 30px #00ffff,
+                0 0 45px #00ffff,
+                inset 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        #cyber-cursor.hover::before {
+            background: #00ffff;
+            box-shadow: 0 0 12px #00ffff;
+        }
+        
+        @keyframes pulse-cursor {
+            0%, 100% {
+                box-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000,
+                    0 0 30px #ff0000,
+                    inset 0 0 10px rgba(255, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 0 15px #ff0000,
+                    0 0 30px #ff0000,
+                    0 0 45px #ff0000,
+                    inset 0 0 15px rgba(255, 0, 0, 0.5);
+            }
+        }
+        
+        /* Enhanced Spotlight Effect */
+        .cyber-spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle 100px at var(--x, 0px) var(--y, 0px), rgba(255,0,0,0.08), transparent 70%),
+                radial-gradient(circle 200px at var(--x, 0px) var(--y, 0px), rgba(0,255,255,0.05), transparent 80%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Cyberpunk Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,0,0,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-200, .dark\:bg-gray-900 {
+            background-color: #000000 !important;
+        }
+        
+        .text-black, .text-gray-900, .dark\:text-white {
+            color: #e0e0e0 !important;
+        }
+        
+        .text-white {
+            color: #ffffff !important;
+        }
+        
+        /* Override any white/gray backgrounds */
+        [class*="bg-white"], [class*="bg-gray"] {
+            background-color: #000000 !important;
+        }
+        
+        /* Force navigation styles */
+        .nav-link {
+            color: #e0e0e0 !important;
+            position: relative !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+        }
+        
+        .nav-link::before {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: #ff0000 !important;
+            transition: width 0.3s ease !important;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 100% !important;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ff0000 !important;
+            background: rgba(255, 0, 0, 0.05) !important;
+        }
+        
+        /* Mobile navigation styles */
+        .mobile-nav-link {
+            color: #e0e0e0 !important;
+            display: block !important;
+            padding: 0.75rem 1rem !important;
+            border-radius: 6px !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: #ff0000 !important;
+            background: rgba(255, 0, 0, 0.1) !important;
+            border-left: 3px solid #ff0000 !important;
+        }
+        
+        /* Header styles */
+        #header {
+            background-color: rgba(10, 10, 10, 0.9) !important;
+            border-bottom: 1px solid #ff0000 !important;
+        }
+        
+        /* Ensure project cards use dark theme */
+        .project-card, .cyber-card {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%) !important;
+            border: 1px solid #ff0000 !important;
+            color: #e0e0e0 !important;
+        }
+    </style>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Cyberpunk Cursor Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create custom cursor
+            const cursor = document.createElement('div');
+            cursor.id = 'cyber-cursor';
+            document.body.appendChild(cursor);
+            
+            // Create spotlight effect
+            const spotlight = document.createElement('div');
+            spotlight.className = 'cyber-spotlight';
+            document.body.appendChild(spotlight);
+            
+            // Mouse move handler with smooth tracking
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Update spotlight position immediately
+                spotlight.style.setProperty('--x', mouseX + 'px');
+                spotlight.style.setProperty('--y', mouseY + 'px');
+            });
+            
+            // Smooth cursor animation
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.1;
+                cursorY += (mouseY - cursorY) * 0.1;
+                
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+            
+            // Enhanced hover effects
+            const interactiveElements = 'a, button, input, select, textarea, .cursor-pointer';
+            
+            document.addEventListener('mouseenter', function(e) {
+                if (e.target.matches(interactiveElements)) {
+                    cursor.classList.add('hover');
+                    
+                    // Add glitch effect to text elements
+                    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+                        e.target.style.textShadow = '2px 0 #ff0000, -2px 0 #00ffff';
+                        setTimeout(() => {
+                            e.target.style.textShadow = '';
+                        }, 150);
+                    }
+                }
+            }, true);
+            
+            document.addEventListener('mouseleave', function(e) {
+                if (e.target.matches(interactiveElements)) {
+                    cursor.classList.remove('hover');
+                }
+            }, true);
+            
+            // Click effect
+            document.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('div');
+                ripple.style.cssText = `
+                    position: fixed;
+                    left: ${e.clientX}px;
+                    top: ${e.clientY}px;
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid #ff0000;
+                    border-radius: 50%;
+                    transform: translate(-50%, -50%);
+                    pointer-events: none;
+                    z-index: 10000;
+                    animation: ripple-expand 0.6s ease-out forwards;
+                `;
+                
+                document.body.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+            
+            // Add ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple-expand {
+                    to {
+                        width: 80px;
+                        height: 80px;
+                        opacity: 0;
+                        border-width: 1px;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</head>

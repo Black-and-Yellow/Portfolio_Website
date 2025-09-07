@@ -1,0 +1,147 @@
+<%- include('../partials/head') %>
+
+<body class="bg-cyber-black text-cyber-text relative min-h-screen overflow-x-hidden">
+    <%- include('../partials/header') %>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center pt-16 hero-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="space-y-8 animate-fade-in cyber-card">
+                    <!-- Profile Image -->
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <img src="/img/p.png" 
+                                 alt="Profile" 
+                                 class="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-cyber-red shadow-xl hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-cyber-red/20 to-transparent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Text Content -->
+                    <div class="space-y-4">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-4 cyber-font tracking-wider">
+                            MUTHURAJA S
+                        </h1>
+                        
+                        <div class="text-xl md:text-2xl text-cyber-text">
+                            <span id="typewriter" class="border-r-2 border-cyber-red pr-2">Full-Stack Developer & Computer Science Student</span>
+                        </div>
+
+                        <p class="text-lg md:text-xl text-cyber-text max-w-3xl mx-auto">
+                            A dedicated and enthusiastic Computer Science student with a strong passion for full-stack development.
+                            Committed to continuous learning and applying technical skills to build efficient and scalable web applications.
+                        </p>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="/projects" 
+                           class="btn-primary group">
+                            <span class="flex items-center">
+                                View My Work
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </a>
+                        
+                        <a href="/contact" 
+                           class="group bg-transparent border-2 border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-cyber-black font-semibold py-4 px-8 rounded-lg transition-all duration-300 hover:-translate-y-1">
+                            <span class="flex items-center">
+                                Get In Touch
+                                <i class="fas fa-envelope ml-2 group-hover:scale-110 transition-transform"></i>
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://github.com/Black-and-Yellow" target="_blank" rel="noopener noreferrer" 
+                           class="text-cyber-text hover:text-cyber-red hover:scale-110 transition-all duration-200 p-2">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/muthuraja-s-6798b0314" target="_blank" rel="noopener noreferrer" 
+                           class="text-cyber-text hover:text-cyber-cyan hover:scale-110 transition-all duration-200 p-2">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="mailto:muthuoffl6@gmail.com" 
+                           class="text-cyber-text hover:text-cyber-purple hover:scale-110 transition-all duration-200 p-2">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Preview -->
+        <section id="featured-projects" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 cyber-card">
+                    <h2 class="text-3xl md:text-4xl font-bold text-cyber-white mb-4">
+                        Featured Projects
+                    </h2>
+                    <p class="text-lg text-cyber-text max-w-2xl mx-auto">
+                        A showcase of my latest cybersecurity and development work
+                    </p>
+                </div>
+
+                <div class="project-grid">
+                    <% if (projects && projects.length > 0) { %>
+                        <% projects.forEach((project, index) => { %>
+                            <div class="project-card group">
+                                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-t-xl">
+                                    <img src="<%= project.imageUrl %>" 
+                                         alt="<%= project.title %>" 
+                                         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-semibold text-cyber-white mb-2 group-hover:text-cyber-red transition-colors">
+                                        <%= project.title %>
+                                    </h3>
+                                    <p class="text-cyber-text mb-4">
+                                        <%= project.description %>
+                                    </p>
+                                    
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <% project.technologies.slice(0, 3).forEach(tech => { %>
+                                            <span class="tech-tag">
+                                                <%= tech %>
+                                            </span>
+                                        <% }) %>
+                                    </div>
+                                    
+                                    <div class="flex space-x-4">
+                                        <a href="<%= project.githubUrl %>" target="_blank" rel="noopener noreferrer"
+                                           class="text-cyber-text hover:text-cyber-red transition-colors">
+                                            <i class="fab fa-github text-lg"></i>
+                                        </a>
+                                        <% if (project.liveUrl) { %>
+                                            <a href="<%= project.liveUrl %>" target="_blank" rel="noopener noreferrer"
+                                               class="text-cyber-text hover:text-cyber-cyan transition-colors">
+                                                <i class="fas fa-external-link-alt text-lg"></i>
+                                            </a>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="/projects" 
+                       class="btn-primary inline-flex items-center">
+                        View All Projects
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
