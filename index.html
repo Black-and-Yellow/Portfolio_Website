@@ -89,7 +89,36 @@
             overflow-x: hidden !important;
             background-color: #000000 !important;
             color: #e0e0e0 !important;
-            cursor: none !important;
+        }
+        
+        /* Custom cursor only on desktop */
+        @media (min-width: 768px) {
+            html, body {
+                cursor: none !important;
+            }
+        }
+        
+        /* Mobile touch improvements */
+        @media (max-width: 767px) {
+            * {
+                cursor: auto !important;
+            }
+            
+            button, a, input, select, textarea {
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: rgba(239, 68, 68, 0.3);
+            }
+            
+            #mobile-menu-button {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+                backdrop-filter: blur(10px);
+            }
+            
+            #mobile-menu-button:active {
+                background: rgba(239, 68, 68, 0.3);
+                transform: scale(0.95);
+            }
         }
         
         /* Custom Cyberpunk Cursor */
@@ -263,7 +292,7 @@
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-white hover:text-red-500 focus:outline-none">
+                    <button id="mobile-menu-button" class="text-white hover:text-red-500 focus:outline-none p-2 touch-manipulation" style="min-height: 44px; min-width: 44px;">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -522,8 +551,21 @@
             const mobileMenu = document.getElementById('mobile-menu');
             
             if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function() {
+                // Add both click and touchstart events for better mobile support
+                const toggleMenu = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     mobileMenu.classList.toggle('hidden');
+                };
+                
+                mobileMenuButton.addEventListener('click', toggleMenu);
+                mobileMenuButton.addEventListener('touchstart', toggleMenu, { passive: false });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 });
             }
         });

@@ -26,7 +26,7 @@
             overflow-x: hidden !important;
             background-color: #000000 !important;
             color: #e0e0e0 !important;
-            cursor: none !important;
+            
         }
         
         /* Custom Cyberpunk Cursor */
@@ -172,7 +172,7 @@
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-white hover:text-red-500 focus:outline-none">
+                    <button id="mobile-menu-button" class="text-white hover:text-red-500 focus:outline-none p-2 touch-manipulation" style="min-height: 44px; min-width: 44px;">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -437,8 +437,21 @@
             const mobileMenu = document.getElementById('mobile-menu');
             
             if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function() {
+                // Add both click and touchstart events for better mobile support
+                const toggleMenu = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     mobileMenu.classList.toggle('hidden');
+                };
+                
+                mobileMenuButton.addEventListener('click', toggleMenu);
+                mobileMenuButton.addEventListener('touchstart', toggleMenu, { passive: false });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 });
             }
 
@@ -473,3 +486,4 @@
     </script>
 </body>
 </html>
+
