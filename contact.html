@@ -274,6 +274,8 @@
                         <h2 class="text-2xl font-bold text-white mb-8">Send Me a Message</h2>
                         
                         <form class="space-y-6" action="https://formspree.io/f/mzzaykay" method="POST">
+                            <input type="hidden" name="_next" value="https://black-and-yellow.github.io/Portfolio_Website/contact.html?success=true">
+                            <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
@@ -438,6 +440,34 @@
                 mobileMenuButton.addEventListener('click', function() {
                     mobileMenu.classList.toggle('hidden');
                 });
+            }
+
+            // Check for success parameter in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'fixed top-20 right-4 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg z-50 animate-bounce';
+                successMessage.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle mr-3"></i>
+                        <span>Message sent successfully! I'll get back to you soon.</span>
+                        <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white hover:text-gray-200">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                document.body.appendChild(successMessage);
+
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    if (successMessage.parentElement) {
+                        successMessage.remove();
+                    }
+                }, 5000);
+
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
             }
         });
     </script>
