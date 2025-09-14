@@ -1,36 +1,36 @@
-# 🚀 Cyberpunk Portfolio Website
+# Cyberpunk Portfolio Website
 
 A modern, responsive portfolio website featuring a cyberpunk aesthetic with red and black color scheme, 3D backgrounds, and smooth animations.
 
 ![Portfolio Preview](public/img/preview.png)
 
-## ✨ Features
+## Features
 
-### 🎨 Visual Design
+### Visual Design
 - **Cyberpunk Theme**: Sleek red and black color scheme with neon glow effects
 - **3D Background**: Interactive Vanta.js Globe on desktop (disabled on mobile for performance)
 - **Custom Cursor**: Animated cursor with hover effects on resume and timeline pages
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Typography**: Premium fonts including Orbitron and Rajdhani
 
-### 🎬 Animations
+### Animations
 - **H1 Typewriter Effect**: Simple, lightweight typing animation on all pages
 - **Smooth Transitions**: Hover effects and page transitions
 - **Performance Optimized**: Respects user's reduced motion preferences
 
-### 📱 Mobile Optimization
+### Mobile Optimization
 - **Plain Black Background**: 3D effects disabled on mobile for better performance
 - **Touch-Friendly**: Optimized navigation and button sizes
 - **Fast Loading**: Minimal JavaScript for mobile users
 
-### 🛠️ Technical Features
+### 🛠Technical Features
 - **Clean Codebase**: Removed all unused animations and bloated code
 - **Semantic HTML**: Proper structure and accessibility
 - **Modern CSS**: CSS Grid, Flexbox, and custom properties
 - **Vanilla JavaScript**: No heavy frameworks, pure performance
 - **Cross-Browser**: Support for all modern browsers
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 project/
@@ -91,39 +91,39 @@ project/
    http://localhost:8000
    ```
 
-## 🎯 Pages Overview
+## Pages Overview
 
-### 🏠 Homepage (`index.html`)
+### Homepage (`index.html`)
 - **3D Globe Background**: Interactive Vanta.js animation (desktop only)
 - **Hero Section**: Introduction with typewriter effect
 - **Responsive Navigation**: Desktop and mobile-friendly menu
 
-### 👨‍💻 About (`about/index.html`)
+### About (`about/index.html`)
 - **Personal Information**: Bio and background
 - **Skills Section**: Technical skills and expertise
 - **Clean Layout**: Focused on content
 
-### 💼 Projects (`projects/index.html`)
+### Projects (`projects/index.html`)
 - **Portfolio Showcase**: Featured projects and work
 - **Project Cards**: Interactive project previews
 - **External Links**: GitHub and live demo links
 
-### 📅 Timeline (`timeline/index.html`)
+### Timeline (`timeline/index.html`)
 - **Career Journey**: Professional timeline
 - **Custom Cursor**: Enhanced interaction with cyberpunk cursor
 - **Milestone Highlights**: Key career achievements
 
-### 📄 Resume (`resume/index.html`)
+### Resume (`resume/index.html`)
 - **Professional Resume**: Downloadable PDF version
 - **Custom Cursor**: Enhanced interaction effects
 - **Skills Matrix**: Technical and soft skills
 
-### 📧 Contact (`contact/index.html`)
+### Contact (`contact/index.html`)
 - **Contact Form**: Functional contact form
 - **Social Links**: Professional social media
 - **Location Info**: Contact details
 
-## 🎨 Customization
+## Customization
 
 ### Colors
 The cyberpunk theme uses CSS custom properties defined in `main.css`:
@@ -156,7 +156,7 @@ VANTA.GLOBE({
 });
 ```
 
-## 📱 Mobile Considerations
+## Mobile Considerations
 
 ### Performance Optimizations
 - **No 3D Effects**: Vanta.js disabled on mobile devices
@@ -171,11 +171,11 @@ VANTA.GLOBE({
 ## �️ Development
 
 ### Recent Optimizations
-- ✅ Removed 5 unused JavaScript animation files
-- ✅ Cleaned up CSS from 800+ to 616 lines (23% reduction)
-- ✅ Fixed cursor animations on resume and timeline pages
-- ✅ Optimized navbar styling with proper fonts
-- ✅ Disabled 3D background on mobile for performance
+- Removed 5 unused JavaScript animation files
+- Cleaned up CSS from 800+ to 616 lines (23% reduction)
+- Fixed cursor animations on resume and timeline pages
+- Optimized navbar styling with proper fonts
+- Disabled 3D background on mobile for performance
 
 ### Dependencies
 - **Vanta.js**: 3D background effects (desktop only)
@@ -183,29 +183,6 @@ VANTA.GLOBE({
 - **Font Awesome**: Icons
 - **Google Fonts**: Orbitron, Rajdhani, Inter
 
-### Browser Support
-- ✅ Chrome (recommended)
-- ✅ Firefox
-- ✅ Safari
-- ✅ Edge
-- ⚠️ IE11 (limited support)
-
-## 🚀 Deployment
-
-### Netlify (Recommended)
-The project is configured for Netlify deployment with `netlify.toml`:
-
-```toml
-[build]
-  publish = "."
-  command = "echo 'No build required'"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-```
 
 ### GitHub Pages
 Compatible with GitHub Pages for static hosting.
@@ -213,45 +190,19 @@ Compatible with GitHub Pages for static hosting.
 ### Custom Server
 Can be hosted on any web server that supports static files.
 
-## 🔧 Configuration Files
+## Configuration Files
 
 - **`_config.yml`**: Jekyll configuration for GitHub Pages
-- **`netlify.toml`**: Netlify deployment settings
 - **`package.json`**: Project dependencies and metadata
 
-## 📊 Performance
 
-### Optimizations Applied
-- **Code Splitting**: Minimal JavaScript loading
-- **Image Optimization**: Compressed images
-- **CSS Optimization**: Removed unused styles
-- **Mobile-First**: Performance-focused mobile experience
-
-### Metrics
-- **Mobile Performance**: 95+ (with 3D disabled)
-- **Desktop Performance**: 90+ (with 3D effects)
-- **Accessibility**: AA compliant
-- **SEO**: Optimized meta tags and structure
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## � License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍� Author
+## Author
 
 **Your Name**
 - GitHub: [@Black-and-Yellow](https://github.com/Black-and-Yellow)
-- Portfolio: [Your Portfolio URL]
+- Portfolio: [Portfolio Website](https://muthuraja.tech/)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Vanta.js** for amazing 3D background effects
 - **Three.js** for 3D rendering capabilities
@@ -260,6 +211,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-⭐ **Star this repository if you found it helpful!**
+**Star this repository if you found it helpful!**
 
-💬 **Have questions?** Open an issue or reach out via the contact form.
+**Have questions?** Open an issue or reach out via the contact form.
