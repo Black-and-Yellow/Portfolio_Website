@@ -29,7 +29,7 @@
             
         }
         
-        /* Custom Cyberpunk Cursor */
+         /* Custom Cyberpunk Cursor */
         #cyber-cursor {
             pointer-events: none;
             position: fixed;
@@ -51,7 +51,55 @@
             animation: pulse-cursor 2s infinite;
         }
         
+        #cyber-cursor::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #ff0000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px #ff0000;
+        }
+        
+        #cyber-cursor.hover {
+            width: 40px;
+            height: 40px;
+            border-color: #00ffff;
+            background: rgba(0, 255, 255, 0.15);
+            box-shadow: 
+                0 0 15px #00ffff,
+                0 0 30px #00ffff,
+                0 0 45px #00ffff,
+                inset 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        #cyber-cursor.hover::before {
+            background: #00ffff;
+            box-shadow: 0 0 12px #00ffff;
+        }
+        
+        @keyframes pulse-cursor {
+            0%, 100% {
+                box-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000,
+                    0 0 30px #ff0000,
+                    inset 0 0 10px rgba(255, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 0 15px #ff0000,
+                    0 0 30px #ff0000,
+                    0 0 45px #ff0000,
+                    inset 0 0 15px rgba(255, 0, 0, 0.5);
+            }
+        }
+
         /* Navigation styles */
+         /* Navigation styles */
         .nav-link {
             color: #e0e0e0 !important;
             position: relative !important;
@@ -294,7 +342,8 @@
     </style>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -350,9 +399,9 @@
         <section class="py-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                        My <span class="text-red-500">Journey</span>
-                    </h1>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+                                My <span class="text-red-500" id="name-typewriter">Journey</span>
+                            </h1>
                     <p class="text-lg text-gray-400 max-w-2xl mx-auto">
                         A chronological overview of my academic journey, professional experience, and key achievements.
                     </p>
@@ -528,7 +577,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="public/js/main.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script src="/public/js/simple-animations.js"></script>
     
     <!-- Cyberpunk Cursor Script -->
     <script>
@@ -560,17 +610,24 @@
             // Hover effects
             const interactiveElements = 'a, button, input, select, textarea, .cursor-pointer';
             
-            document.addEventListener('mouseenter', function(e) {
-                if (e.target.matches(interactiveElements)) {
+            function matchesSelector(element, selector) {
+                if (element.matches) return element.matches(selector);
+                if (element.msMatchesSelector) return element.msMatchesSelector(selector);
+                if (element.webkitMatchesSelector) return element.webkitMatchesSelector(selector);
+                return false;
+            }
+            
+            document.addEventListener('mouseover', function(e) {
+                if (matchesSelector(e.target, interactiveElements) || e.target.closest(interactiveElements)) {
                     cursor.classList.add('hover');
                 }
-            }, true);
+            });
             
-            document.addEventListener('mouseleave', function(e) {
-                if (e.target.matches(interactiveElements)) {
+            document.addEventListener('mouseout', function(e) {
+                if (matchesSelector(e.target, interactiveElements) || e.target.closest(interactiveElements)) {
                     cursor.classList.remove('hover');
                 }
-            }, true);
+            });
             
             // Mobile menu toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');

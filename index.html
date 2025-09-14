@@ -265,6 +265,10 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Vanta.js Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.globe.min.js"></script>
 </head>
 
 <body>
@@ -315,7 +319,7 @@
     <!-- Main Content -->
     <main class="pt-16">
         <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section id="vanta-bg" class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
             <!-- Particle Background Canvas -->
             <canvas id="particle-canvas" class="absolute inset-0 w-full h-full"></canvas>
             
@@ -500,9 +504,65 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="public/js/main.js"></script>
-    <script src="public/js/particles.js"></script>
-    <script src="public/js/typewriter.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script src="/public/js/simple-animations.js"></script>
+    
+    <!-- Vanta.js Globe Background -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if Vanta is available and user doesn't prefer reduced motion
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            if (typeof VANTA !== 'undefined' && !prefersReducedMotion) {
+                VANTA.GLOBE({
+                    el: "#vanta-bg",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 0.8,
+                    color: 0xff0000,        // Primary red color for the globe
+                    color2: 0xff3333,       // Secondary red for highlights
+                    backgroundColor: 0x000000, // Pure black background
+                    size: 1.20,             // Slightly larger globe
+                    zoom: 0.8,              // Good zoom level for visibility
+                    speed: 1.0,             // Animation speed
+                    opacity: 0.8,           // Slight transparency for layering
+                    points: 10.0,           // Density of points on globe
+                    maxDistance: 20.0,      // Connection distance between points
+                    spacing: 15.0           // Spacing between elements
+                });
+                
+                // Add resize handler for better mobile experience
+                let vantaEffect = VANTA.current;
+                
+                window.addEventListener('resize', () => {
+                    if (vantaEffect) {
+                        vantaEffect.resize();
+                    }
+                });
+                
+                // Reduce intensity on mobile for performance
+                if (window.innerWidth < 768) {
+                    if (vantaEffect) {
+                        vantaEffect.setOptions({
+                            points: 6.0,
+                            maxDistance: 15.0,
+                            speed: 0.7
+                        });
+                    }
+                }
+            } else {
+                // Fallback for reduced motion or if Vanta fails to load
+                const heroSection = document.getElementById('vanta-bg');
+                if (heroSection) {
+                    heroSection.style.background = 'linear-gradient(45deg, #000000 0%, #0a0a0a 50%, #000000 100%)';
+                }
+            }
+        });
+    </script>
     
     <!-- Cyberpunk Cursor Script -->
     <script>
