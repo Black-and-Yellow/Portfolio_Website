@@ -156,7 +156,7 @@ VANTA.GLOBE({
 });
 ```
 
-## 📱 Mobile Considerations
+## Mobile Considerations
 
 ### Performance Optimizations
 - **No 3D Effects**: Vanta.js disabled on mobile devices
@@ -196,7 +196,7 @@ Can be hosted on any web server that supports static files.
 - **`package.json`**: Project dependencies and metadata
 
 
-## � Author
+## Author
 
 **Your Name**
 - GitHub: [@Black-and-Yellow](https://github.com/Black-and-Yellow)
