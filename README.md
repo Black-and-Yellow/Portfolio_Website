@@ -183,22 +183,6 @@ VANTA.GLOBE({
 - **Font Awesome**: Icons
 - **Google Fonts**: Orbitron, Rajdhani, Inter
 
-## 🚀 Deployment
-
-### Netlify (Recommended)
-The project is configured for Netlify deployment with `netlify.toml`:
-
-```toml
-[build]
-  publish = "."
-  command = "echo 'No build required'"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-```
 
 ### GitHub Pages
 Compatible with GitHub Pages for static hosting.
@@ -206,20 +190,19 @@ Compatible with GitHub Pages for static hosting.
 ### Custom Server
 Can be hosted on any web server that supports static files.
 
-## 🔧 Configuration Files
+## Configuration Files
 
 - **`_config.yml`**: Jekyll configuration for GitHub Pages
-- **`netlify.toml`**: Netlify deployment settings
 - **`package.json`**: Project dependencies and metadata
 
 
-## 👨‍� Author
+## � Author
 
 **Your Name**
 - GitHub: [@Black-and-Yellow](https://github.com/Black-and-Yellow)
-- Portfolio: www.muthuraja.tech
+- Portfolio: [Portfolio Website](https://muthuraja.tech/)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Vanta.js** for amazing 3D background effects
 - **Three.js** for 3D rendering capabilities
@@ -228,6 +211,6 @@ Can be hosted on any web server that supports static files.
 
 ---
 
-⭐ **Star this repository if you found it helpful!**
+**Star this repository if you found it helpful!**
 
-💬 **Have questions?** Open an issue or reach out via the contact form.
+**Have questions?** Open an issue or reach out via the contact form.
