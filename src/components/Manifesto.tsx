@@ -10,16 +10,16 @@ export default function Manifesto() {
         <div className="mt-12 grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-9 md:col-start-3">
             <div className="rule-b flex flex-wrap items-baseline justify-between gap-4 py-6 font-display text-3xl leading-tight md:text-6xl">
-              <span>I build</span><span className="italic text-accent">things that work.</span>
+              <span>I build</span><span className="italic text-accent">resilient architectures.</span>
             </div>
             <div className="rule-b flex flex-wrap items-baseline justify-between gap-4 py-6 font-display text-3xl leading-tight md:text-6xl">
-              <span>Carefully chosen</span><span className="italic text-accent">type and grids.</span>
+              <span>Scalable systems,</span><span className="italic text-accent">secure by default.</span>
             </div>
             <div className="rule-b flex flex-wrap items-baseline justify-between gap-4 py-6 font-display text-3xl leading-tight md:text-6xl">
-              <span>Code that is</span><span className="italic text-accent">kind to the next person.</span>
+              <span>Code built with</span><span className="italic text-accent">strict precision.</span>
             </div>
             <div className="rule-b flex flex-wrap items-baseline justify-between gap-4 py-6 font-display text-3xl leading-tight md:text-6xl">
-              <span>Design that earns</span><span className="italic text-accent">its own existence.</span>
+              <span>Driven by endless</span><span className="italic text-accent">technical curiosity.</span>
             </div>
           </div>
         </div>

@@ -12,9 +12,12 @@ export default function Contact() {
         </h2>
         <div className="mt-16 grid grid-cols-12 gap-6 border-t border-accent-foreground/40 pt-8">
           <div className="col-span-12 md:col-span-4">
-            <div className="font-mono text-[10px] uppercase tracking-[0.22em] opacity-70">Email</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.22em] opacity-70">Email & Phone</div>
             <a href="mailto:muthuoffl6@gmail.com" className="link-reveal mt-2 block font-display text-2xl md:text-3xl w-fit">
               muthuoffl6@gmail.com
+            </a>
+            <a href="tel:+919360944839" className="link-reveal mt-2 block font-display text-2xl md:text-3xl w-fit">
+              +91 93609 44839
             </a>
           </div>
           <div className="col-span-12 md:col-span-4">
@@ -31,7 +34,7 @@ export default function Contact() {
           <div className="col-span-12 md:col-span-4">
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] opacity-70">Located</div>
             <div className="mt-2 font-display text-2xl md:text-3xl">
-              Sri City, AP<br/>India · GMT+5:30
+              Salem, TN<br/>India · GMT+5:30
             </div>
           </div>
         </div>

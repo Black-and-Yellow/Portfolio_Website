@@ -1,30 +1,50 @@
 [
   {
     "id": "webdev-lead",
-    "period": "Sep 2024 — Present",
-    "role": "WebDev Lead",
-    "org": "Nexsync · IIIT Sri City",
+    "period": "Aug 2024 — Present",
+    "role": "WebDev Domain Lead",
+    "org": "Nexsync",
     "bullets": [
-      "Lead web development projects using modern frameworks",
-      "Mentor junior developers in engineering best practices",
-      "Coordinate with design for seamless implementation"
+      "Lead the web dev team for the college tech club; review PRs, make stack and architecture calls, and keep projects on track.",
+      "Onboarded new members and ran internal sessions on Git workflows and REST API basics."
     ]
   },
   {
-    "id": "design-core",
-    "period": "Sep 2024 — Present",
+    "id": "nexsync-design",
+    "period": "Sep 2024 — Aug 2025",
     "role": "Design Team Core",
-    "org": "Nexsync · IIIT Sri City",
+    "org": "Nexsync",
     "bullets": [
-      "Designed posters, banners, and visual identity systems",
-      "Created visual content for technical and cultural events",
-      "Maintained design consistency across all materials"
+      "Developed the complete club's visual suite, from creating the logo to all brand graphics and materials."
+    ]
+  },
+  {
+    "id": "college-design",
+    "period": "Sep 2024 — May 2025",
+    "role": "Design Team Core",
+    "org": "IIIT Sri City",
+    "bullets": [
+      "Designed posters and banners for cultural and technical fests.",
+      "Collaborated with the Student Development Council (SDC) and Student Life Council (SLC) to deliver high-quality visual content.",
+      "Maintained design consistency across all college event materials."
+    ]
+  },
+  {
+    "id": "research-traffic",
+    "period": "Aug 2025 — Present",
+    "role": "Ongoing Research",
+    "org": "IIIT Sri City",
+    "bullets": [
+      "Developing a real-time traffic analysis system with dynamic ROI detection using a 2-tier parallel virtual lattice (8×8 grid) where each cell independently computes density, speed, and directional flow.",
+      "Targets dynamic lane region identification and vehicle direction prediction for adaptive traffic signal control.",
+      "Engineered an advanced computer vision pipeline featuring adaptive scene classification, utilizing Dark Channel Prior for fog detection and CLAHE for low-light equalization.",
+      "Implemented a multi-object centroid tracker with vectorized occupancy matrix computations, optimized via multiprocessing to process high-resolution streams in real-time."
     ]
   },
   {
     "id": "btech",
     "period": "2023 — Present",
-    "role": "B.Tech, Computer Science",
+    "role": "B.Tech(Hons), Computer Science",
     "org": "IIIT Sri City",
     "bullets": [
       "Focused on full-stack development and software engineering."

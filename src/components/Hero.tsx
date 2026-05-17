@@ -1,3 +1,80 @@
+import { useEffect, useRef, useState } from 'react'
+
+const BANNER_ITEMS = [
+  { text: "CARGOLINK & META-AGENT", highlight: false },
+  { text: "WEBDEV LEAD @ NEXSYNC", highlight: true },
+  { text: "B.TECH(HONS) CS", highlight: false },
+  { text: "PYTHON • REACT • LANGCHAIN • KAFKA", highlight: true },
+  { text: "TRAFFIC ANALYSIS RESEARCH", highlight: false },
+  { text: "FULL-STACK ENGINEERING", highlight: true }
+]
+
+function InteractiveBanner() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    let animationFrameId: number;
+    
+    const scroll = () => {
+      if (scrollRef.current && !isHovered) {
+        scrollRef.current.scrollLeft += 1.5; // adjust speed here
+        if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2) {
+          scrollRef.current.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+    
+    animationFrameId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isHovered]);
+
+  const scrollBy = (amount: number) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: amount, behavior: 'smooth' })
+    }
+  }
+
+  // Duplicate items to ensure smooth infinite scrolling
+  const items = [...BANNER_ITEMS, ...BANNER_ITEMS, ...BANNER_ITEMS, ...BANNER_ITEMS]
+
+  return (
+    <section 
+      className="relative rule-t rule-b overflow-hidden bg-ink py-4 text-background group"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="absolute left-0 top-0 bottom-0 z-10 flex items-center bg-gradient-to-r from-ink to-transparent px-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:px-4">
+        <button onClick={() => scrollBy(-400)} aria-label="Scroll left" className="rounded-full bg-background/10 p-2 text-background hover:bg-background/20 hover:scale-110 transition-all backdrop-blur-sm cursor-pointer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="M15 18l-6-6 6-6"></path></svg>
+        </button>
+      </div>
+      
+      <div 
+        ref={scrollRef} 
+        className="flex overflow-x-hidden whitespace-nowrap hide-scrollbar"
+        style={{ scrollBehavior: 'auto' }}
+      >
+        <div className="flex shrink-0 items-center gap-10 pr-10 font-display text-4xl md:text-6xl">
+          {items.map((item, i) => (
+            <span key={i} className="flex items-center gap-10">
+              <span className={item.highlight ? "italic text-accent" : ""}>{item.text}</span>
+              <span className="text-2xl">✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="absolute right-0 top-0 bottom-0 z-10 flex items-center bg-gradient-to-l from-ink to-transparent px-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:px-4">
+        <button onClick={() => scrollBy(400)} aria-label="Scroll right" className="rounded-full bg-background/10 p-2 text-background hover:bg-background/20 hover:scale-110 transition-all backdrop-blur-sm cursor-pointer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="M9 18l6-6-6-6"></path></svg>
+        </button>
+      </div>
+    </section>
+  )
+}
+
 export default function Hero() {
   return (
     <>
@@ -6,13 +83,11 @@ export default function Hero() {
           <div className="rule-b grid grid-cols-12 gap-4 pb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
             <div className="col-span-6 md:col-span-3">№ 01 — Folio</div>
             <div className="col-span-6 md:col-span-3">Sricity · 13.5552°N</div>
-            <div className="hidden md:col-span-3 md:block">Edition · Spring 2025</div>
-            <div className="hidden md:col-span-3 md:block text-right">A portfolio in print</div>
           </div>
           <div className="mt-6 grid grid-cols-12 gap-6 md:mt-10">
             <div className="col-span-12 md:col-span-3">
               <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Subject</div>
-              <p className="mt-3 font-display text-2xl leading-[1.05] md:text-3xl">Computer Science student &amp; full-stack craftsman.</p>
+              <p className="mt-3 font-display text-2xl leading-[1.05] md:text-3xl">Software Engineer building resilient AI systems, secure applications, and scalable cloud architectures.</p>
               <div className="mt-8 rule-t pt-4 font-mono text-[10px] uppercase tracking-[0.22em]">
                 <div className="text-muted-foreground">Established</div>
                 <div>2023 · IIIT Sri City</div>
@@ -48,8 +123,11 @@ export default function Hero() {
                         <path d="M7 17L17 7M9 7h8v8" strokeLinecap="square"></path>
                       </svg>
                     </a>
-                    <a href="#contact" className="inline-flex items-center gap-2 border border-ink px-5 py-3 font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-ink hover:text-background">
+                    <a href="#contact" className="inline-flex items-center gap-2 border border-ink px-5 py-3 font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-ink hover:text-background transition-colors">
                       Make contact
+                    </a>
+                    <a href="/resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-ink px-5 py-3 font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-ink hover:text-background transition-colors">
+                      Resume
                     </a>
                   </div>
                   <div className="flex items-center gap-5">
@@ -76,7 +154,7 @@ export default function Hero() {
                   <path id="circ" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"></path>
                 </defs>
                 <text className="fill-current font-mono text-[9px] tracking-[4px]">
-                  <textPath href="#circ">• PORTFOLIO • 2025 • MUTHURAJA S • IIIT SRI CITY </textPath>
+                  <textPath href="#circ">• PORTFOLIO 2025 • MUTHU • SRI CITY • </textPath>
                 </text>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
@@ -87,26 +165,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section aria-hidden="true" className="rule-t rule-b overflow-hidden bg-ink py-4 text-background">
-        <div className="marquee flex whitespace-nowrap">
-          <div className="flex shrink-0 items-center gap-10 pr-10 font-display text-4xl md:text-6xl">
-            <span className="flex items-center gap-10"><span>FULL-STACK</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span className="italic text-accent">DEVELOPER</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span>DESIGNER</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span className="italic text-accent">BUILDER</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span>STUDENT</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span className="italic text-accent">TINKERER</span><span className="text-2xl">✦</span></span>
-          </div>
-          <div className="flex shrink-0 items-center gap-10 pr-10 font-display text-4xl md:text-6xl">
-            <span className="flex items-center gap-10"><span>FULL-STACK</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span className="italic text-accent">DEVELOPER</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span>DESIGNER</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span className="italic text-accent">BUILDER</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span>STUDENT</span><span className="text-2xl">✦</span></span>
-            <span className="flex items-center gap-10"><span className="italic text-accent">TINKERER</span><span className="text-2xl">✦</span></span>
-          </div>
-        </div>
-      </section>
+      <InteractiveBanner />
     </>
   )
 }

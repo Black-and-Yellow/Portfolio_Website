@@ -23,7 +23,7 @@ export default function Skills() {
               </div>
               <ul className="space-y-2 font-display text-2xl leading-tight md:text-3xl">
                 {group.items.map((item) => (
-                  <li key={item} className="link-reveal">{item}</li>
+                  <li key={item}><span className="link-reveal">{item}</span></li>
                 ))}
               </ul>
             </div>

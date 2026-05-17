@@ -1,15 +1,15 @@
 [
   {
-    "name": "Portfolio",
-    "description": "Responsive portfolio site showcasing projects, skills, and experience — built with custom animations and a considered visual system.",
-    "github": "https://github.com/Black-and-Yellow/Portfolio_Website",
-    "live": "https://black-and-yellow.github.io/Portfolio_Website/",
-    "techStack": ["React", "Tailwind", "Motion"],
+    "name": "Parallel Vehicle & Traffic Analysis",
+    "description": "Built a vehicle detection pipeline using OpenCV without any pretrained models — used frame differencing, CLAHE equalization, and morphological operations to spot vehicles across lane regions. Tuned detection separately for night, fog, and daytime conditions.",
+    "github": "https://github.com/Black-and-Yellow/parallel-virtual-lattice-vehicle-detection",
+    "live": "",
+    "techStack": ["Python", "OpenCV", "Multiprocessing", "NumPy"],
     "images": [],
-    "category": "Personal Website",
+    "category": "Computer Vision",
     "status": "Active",
     "date": "2024",
     "featured": true,
-    "gradient": "from-sky-500/20 to-indigo-600/5"
+    "gradient": "from-purple-500/20 to-indigo-600/5"
   }
 ]
