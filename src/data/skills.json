@@ -2,23 +2,23 @@
   "groups": [
     {
       "label": "Languages",
-      "items": ["C", "Java", "Python", "JavaScript"]
+      "items": ["TypeScript", "JavaScript", "Python", "Java", "C++", "C"]
     },
     {
-      "label": "Web",
-      "items": ["HTML/CSS", "Node.js", "Express.js", "Git/GitHub"]
+      "label": "Frontend",
+      "items": ["React", "Next.js", "Tailwind CSS", "Framer Motion", "HTML5", "CSS3"]
     },
     {
-      "label": "Databases",
-      "items": ["MySQL", "MongoDB"]
+      "label": "Backend & DB",
+      "items": ["Node.js", "Express.js", "FastAPI", "MongoDB", "MySQL", "PostgreSQL"]
     },
     {
-      "label": "Coursework",
-      "items": ["DBMS", "OOP", "Operating Systems", "Computer Networks", "Data Structures"]
+      "label": "Tools & Core",
+      "items": ["Git", "GitHub Actions", "Docker", "Linux", "Data Structures", "Algorithms"]
     }
   ],
   "marquee": [
-    "JavaScript", "React", "Node.js", "MongoDB", "Express",
-    "Python", "Tailwind", "MySQL", "Git", "Java"
+    "TypeScript", "React", "Next.js", "Node.js", "Tailwind",
+    "Python", "MongoDB", "FastAPI", "Docker", "Git"
   ]
 }

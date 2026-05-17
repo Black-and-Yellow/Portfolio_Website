@@ -1,30 +1,32 @@
 import skills from '../data/skills.json'
 
-// Double the array so it scrolls seamlessly
-const marqueeItems = [...skills.marquee, ...skills.marquee]
+const marqueeItems = [...skills.marquee, ...skills.marquee, ...skills.marquee]
 
 export default function TechMarquee() {
   return (
-    <section
-      aria-hidden="true"
-      className="border-y py-6 overflow-hidden"
-      style={{
-        borderColor: 'var(--border)',
-        backgroundColor: 'rgba(17,17,17,0.4)',
-      }}
-    >
+    <section className="border-y border-border bg-background py-8 overflow-hidden flex flex-col gap-4">
+      {/* Scroll Left */}
       <div className="marquee">
         {marqueeItems.map((tech, i) => (
           <div
             key={i}
-            className="flex items-center gap-12 px-6 font-display text-3xl md:text-5xl"
-            style={{ color: 'var(--muted-foreground)' }}
+            className="flex items-center gap-8 px-4 font-display text-4xl italic md:text-6xl text-muted-foreground transition-colors hover:text-foreground"
           >
             {tech}
-            <span
-              className="h-1 w-1 rounded-full flex-shrink-0"
-              style={{ backgroundColor: 'var(--accent)' }}
-            />
+            <span className="h-2 w-2 rounded-full bg-accent flex-shrink-0" />
+          </div>
+        ))}
+      </div>
+      
+      {/* Scroll Right (Reverse) */}
+      <div className="marquee" style={{ animationDirection: 'reverse', animationDuration: '45s' }}>
+        {marqueeItems.reverse().map((tech, i) => (
+          <div
+            key={i}
+            className="flex items-center gap-8 px-4 font-display text-4xl md:text-6xl text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {tech}
+            <span className="h-[2px] w-8 bg-border flex-shrink-0" />
           </div>
         ))}
       </div>

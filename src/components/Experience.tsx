@@ -1,111 +1,61 @@
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import experienceData from '../data/experience.json'
 
-interface ExperienceEntry {
-  id: string
-  period: string
-  role: string
-  org: string
-  bullets: string[]
-}
-
-const experience = experienceData as ExperienceEntry[]
-
-function ExperienceRow({ entry }: { entry: ExperienceEntry }) {
-  const ref = useScrollAnimation()
-
-  return (
-    <div
-      ref={ref}
-      className="group grid gap-4 p-8 transition-colors md:grid-cols-12 md:items-center md:p-10"
-      style={{ backgroundColor: 'var(--background)' }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = 'var(--surface)'
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = 'var(--background)'
-      }}
-    >
-      {/* Period */}
-      <div
-        className="md:col-span-3 font-mono text-xs uppercase tracking-wider"
-        style={{ color: 'var(--muted-foreground)' }}
-      >
-        {entry.period}
-      </div>
-
-      {/* Role + Org */}
-      <div className="md:col-span-4">
-        <div className="font-display text-3xl">{entry.role}</div>
-        <div
-          className="mt-1 text-sm"
-          style={{ color: 'var(--muted-foreground)' }}
-        >
-          {entry.org}
-        </div>
-      </div>
-
-      {/* Bullets */}
-      <ul className="md:col-span-5 space-y-1.5 text-sm" style={{ color: 'var(--muted-foreground)' }}>
-        {entry.bullets.map((bullet, i) => (
-          <li key={i} className="flex gap-3">
-            <span
-              className="mt-2 h-1 w-1 shrink-0 rounded-full"
-              style={{ backgroundColor: 'var(--accent)' }}
-            />
-            {bullet}
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
 export default function Experience() {
-  const headerRef = useScrollAnimation()
-
   return (
-    <section
-      id="experience"
-      className="relative border-t py-32 md:py-44"
-      style={{ borderColor: 'var(--border)' }}
-    >
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
-        {/* Section Header */}
-        <div
-          ref={headerRef}
-          className="flex items-end justify-between gap-6 border-b pb-6"
-          style={{ borderColor: 'var(--border)' }}
-        >
-          <div className="flex items-baseline gap-6">
-            <span
-              className="font-mono text-xs uppercase tracking-wider"
-              style={{ color: 'var(--accent)' }}
-            >
-              03
-            </span>
-            <h2 className="font-display text-4xl md:text-6xl">Experience</h2>
+    <section id="dossier" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-36">
+      <div className="flex items-baseline justify-between border-b border-ink pb-4 font-mono text-[10px] uppercase tracking-[0.22em]">
+        <span>§ III</span>
+        <span>Dossier</span>
+        <span className="text-muted-foreground">— ✦ —</span>
+      </div>
+      <div className="mt-6 grid grid-cols-12 gap-8">
+        <div className="col-span-12 md:col-span-5">
+          <h2 className="font-display text-5xl leading-[0.95] md:text-7xl">
+            The <span className="italic text-accent">paper</span> trail.
+          </h2>
+          <p className="mt-8 font-serif text-xl leading-snug md:text-2xl">
+            I write code, ship interfaces, mentor peers, and occasionally design a poster. Below, the chronological record.
+          </p>
+          <div className="mt-10 grid grid-cols-3 gap-4 rule-t pt-6">
+            <div>
+              <div className="font-display text-5xl text-accent">2+</div>
+              <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Years building</div>
+            </div>
+            <div>
+              <div className="font-display text-5xl text-accent">3+</div>
+              <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Roles held</div>
+            </div>
+            <div>
+              <div className="font-display text-5xl text-accent">2+</div>
+              <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Hackathons</div>
+            </div>
           </div>
-          <span
-            className="hidden text-sm md:block"
-            style={{ color: 'var(--muted-foreground)' }}
-          >
-            What I've been working on.
-          </span>
         </div>
-
-        {/* Experience Table */}
-        <div
-          className="mt-16 grid gap-px overflow-hidden rounded-2xl border"
-          style={{
-            borderColor: 'var(--border)',
-            backgroundColor: 'var(--border)',
-          }}
-        >
-          {experience.map((entry) => (
-            <ExperienceRow key={entry.id} entry={entry} />
-          ))}
-        </div>
+        <ol className="col-span-12 md:col-span-7">
+          {experienceData.map((item, index) => {
+            const num = String(index + 1).padStart(2, '0')
+            // Join bullets into a single paragraph for the compact layout
+            const description = item.bullets.join('; ')
+            
+            return (
+              <li key={item.id} className="grid grid-cols-12 gap-4 border-t border-ink py-6 first:border-t-2">
+                <div className="col-span-12 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground md:col-span-3">
+                  {item.period}
+                </div>
+                <div className="col-span-12 md:col-span-9">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-3xl leading-tight md:text-4xl">{item.role}</h3>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em]">№ {num}</span>
+                  </div>
+                  <div className="mt-1 font-serif italic text-muted-foreground">{item.org}</div>
+                  <p className="mt-3 max-w-prose text-sm leading-relaxed text-foreground/80">
+                    {description}
+                  </p>
+                </div>
+              </li>
+            )
+          })}
+        </ol>
       </div>
     </section>
   )

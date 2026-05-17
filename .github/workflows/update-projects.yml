@@ -121,6 +121,8 @@ jobs:
             }
           }
 
+          const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
           (async () => {
             const repos = await getAllRepos();
             const projects = [];
@@ -131,6 +133,10 @@ jobs:
               if (repo.fork || repo.archived) continue;
 
               const info = await getInfoJson(repo.name);
+              
+              // Rate limiting delay to avoid secondary API limits (500ms)
+              await sleep(500);
+              
               if (!info) continue;
 
               console.log(`✓ Found info.json in: ${repo.name}`);

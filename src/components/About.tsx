@@ -1,129 +1,81 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import profile from '../data/profile.json'
-import skills from '../data/skills.json'
-
-const BASE = import.meta.env.BASE_URL
 
 export default function About() {
-  const headerRef = useScrollAnimation()
-  const photoRef = useScrollAnimation()
-  const bioRef = useScrollAnimation()
+  const ref1 = useScrollAnimation<HTMLDivElement>()
+  const ref2 = useScrollAnimation<HTMLDivElement>()
 
   return (
-    <section
-      id="about"
-      className="relative border-t py-32 md:py-44"
-      style={{ borderColor: 'var(--border)' }}
-    >
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
-        {/* Section Header */}
-        <div
-          ref={headerRef}
-          className="flex items-end justify-between gap-6 border-b pb-6"
-          style={{ borderColor: 'var(--border)' }}
-        >
-          <div className="flex items-baseline gap-6">
-            <span
-              className="font-mono text-xs uppercase tracking-wider"
-              style={{ color: 'var(--accent)' }}
-            >
-              02
-            </span>
-            <h2 className="font-display text-4xl md:text-6xl">About</h2>
-          </div>
-          <span
-            className="hidden text-sm md:block"
-            style={{ color: 'var(--muted-foreground)' }}
-          >
-            The short version.
-          </span>
-        </div>
-
-        <div className="mt-16 grid gap-16 md:grid-cols-12">
-          {/* Photo */}
-          <div ref={photoRef} className="md:col-span-5">
-            <div className="relative">
-              <div
-                className="absolute -inset-4 rounded-2xl blur-2xl"
-                style={{ backgroundColor: 'hsl(38 75% 60% / 0.15)' }}
+    <section id="about" className="relative py-24 md:py-32 px-6 md:px-10 bg-secondary/30 border-y border-border">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-16 md:grid-cols-[1fr_1.5fr] items-start">
+          
+          {/* Left Column - Image & Abstract Info */}
+          <div ref={ref1} className="reveal relative">
+            <div className="aspect-[3/4] w-full max-w-md mx-auto md:mx-0 overflow-hidden relative group">
+              <div className="absolute inset-0 bg-accent/20 mix-blend-overlay z-10 transition-opacity duration-500 group-hover:opacity-0" />
+              <img 
+                src="/profile-photo.jpg" 
+                alt={profile.name}
+                className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                  (e.target as HTMLImageElement).parentElement!.classList.add('bg-muted');
+                }}
               />
-              <img
-                src={`${BASE}img/Profile.jpg`}
-                alt="Muthuraja S"
-                className="relative aspect-[4/5] w-full rounded-2xl object-cover ring-1 ring-border grayscale transition-all duration-700 hover:grayscale-0"
-                loading="lazy"
-              />
+              {/* Fallback abstract pattern if no image */}
+              <div className="absolute inset-0 -z-10 flex items-center justify-center font-display text-[10rem] text-muted-foreground/10 select-none">
+                M
+              </div>
+            </div>
+            
+            <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-6">
+              <div>
+                <span className="block text-xs uppercase tracking-widest text-muted-foreground mb-1">Based in</span>
+                <span className="font-serif italic text-lg text-foreground">{profile.location}</span>
+              </div>
+              <div>
+                <span className="block text-xs uppercase tracking-widest text-muted-foreground mb-1">Focus</span>
+                <span className="font-serif italic text-lg text-foreground">Engineering</span>
+              </div>
             </div>
           </div>
 
-          {/* Bio + Skills */}
-          <div ref={bioRef} className="md:col-span-7 md:pt-8">
-            <p className="font-display text-3xl leading-snug md:text-4xl text-balance">
-              {profile.bio}
-            </p>
-
-            <p
-              className="mt-6 text-base leading-relaxed"
-              style={{ color: 'var(--muted-foreground)' }}
-            >
-              Currently serving as{' '}
-              <span style={{ color: 'var(--foreground)' }}>WebDev Lead</span> and{' '}
-              <span style={{ color: 'var(--foreground)' }}>Design Team Core</span>{' '}
-              at Nexsync, IIIT Sri City — shipping web projects, mentoring
-              developers, and crafting visual content for events.
-            </p>
-
-            {/* Stats */}
-            <div
-              className="mt-12 grid grid-cols-3 gap-6 border-t pt-8"
-              style={{ borderColor: 'var(--border)' }}
-            >
-              {profile.stats.map((stat) => (
-                <div key={stat.label}>
-                  <div
-                    className="font-display text-5xl"
-                    style={{ color: 'var(--accent)' }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div
-                    className="mt-2 font-mono text-[11px] uppercase tracking-wider"
-                    style={{ color: 'var(--muted-foreground)' }}
-                  >
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+          {/* Right Column - Typography Content */}
+          <div ref={ref2} className="reveal flex flex-col justify-center">
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-none mb-10">
+              Behind the <span className="text-accent italic">Code</span>
+            </h2>
+            
+            <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed">
+              <p className="first-letter:font-display first-letter:text-6xl first-letter:float-left first-letter:mr-3 first-letter:leading-[0.8] first-letter:text-foreground">
+                {profile.bio}
+              </p>
+              <p>
+                My approach to software engineering bridges the gap between deep technical implementation and refined user experiences. I believe that performance and aesthetics are not mutually exclusive.
+              </p>
             </div>
 
-            {/* Skill Groups */}
-            <div className="mt-12 grid gap-8 sm:grid-cols-2">
-              {skills.groups.map((group) => (
-                <div key={group.label}>
-                  <div
-                    className="font-mono text-[11px] uppercase tracking-wider"
-                    style={{ color: 'var(--muted-foreground)' }}
-                  >
-                    {group.label}
-                  </div>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {group.items.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-md border px-2.5 py-1 text-xs"
-                        style={{
-                          borderColor: 'var(--border)',
-                          backgroundColor: 'rgba(17,17,17,0.6)',
-                        }}
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-border pt-10">
+              <div className="flex flex-col gap-2">
+                <span className="font-display text-5xl">2+</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">Years Dev</span>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="font-display text-5xl">15+</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">Projects</span>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="font-display text-5xl">1</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">Degree</span>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="font-display text-5xl">∞</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">Passion</span>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
