@@ -50,8 +50,7 @@ export default function About() {
               <img
                 src={`${BASE}img/Profile.jpg`}
                 alt="Muthuraja S"
-                className="relative aspect-[4/5] w-full rounded-2xl object-cover ring-1 grayscale transition-all duration-700 hover:grayscale-0"
-                style={{ ringColor: 'var(--border)' }}
+                className="relative aspect-[4/5] w-full rounded-2xl object-cover ring-1 ring-border grayscale transition-all duration-700 hover:grayscale-0"
                 loading="lazy"
               />
             </div>
