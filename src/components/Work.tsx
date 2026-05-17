@@ -67,7 +67,7 @@ export default function Work() {
                   <div className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.22em] text-ink group-hover:text-background z-10 transition-colors duration-500">
                     Nº {formattedNum} / {totalNum}
                   </div>
-                  <div className="absolute bottom-4 right-4 font-display text-6xl leading-none md:text-7xl group-hover:text-background z-10 transition-colors duration-500">
+                  <div className="absolute bottom-4 right-4 font-display text-6xl leading-none md:text-7xl group-hover:opacity-0 z-10 transition-opacity duration-500">
                     {project.name}
                   </div>
                 </div>
