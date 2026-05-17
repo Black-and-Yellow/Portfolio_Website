@@ -2,23 +2,30 @@
   "groups": [
     {
       "label": "Languages",
-      "items": ["TypeScript", "JavaScript", "Python", "Java", "C++", "C"]
+      "items": ["Python", "TypeScript", "JavaScript", "C++", "C", "SQL"]
     },
     {
-      "label": "Frontend",
-      "items": ["React", "Next.js", "Tailwind CSS", "Framer Motion", "HTML5", "CSS3"]
+      "label": "Frontend & Real-time",
+      "items": ["React", "Tailwind CSS", "Monaco Editor", "Yjs", "WebSockets", "Framer Motion"]
     },
     {
-      "label": "Backend & DB",
-      "items": ["Node.js", "Express.js", "FastAPI", "MongoDB", "MySQL", "PostgreSQL"]
+      "label": "Backend & Cloud",
+      "items": ["Node.js", "Express.js", "FastAPI", "Apache Kafka", "Redis", "GCP"]
     },
     {
-      "label": "Tools & Core",
-      "items": ["Git", "GitHub Actions", "Docker", "Linux", "Data Structures", "Algorithms"]
+      "label": "Databases",
+      "items": ["PostgreSQL", "MongoDB", "ChromaDB", "MySQL"]
+    },
+    {
+      "label": "AI & Data Science",
+      "items": ["LangChain", "LangGraph", "scikit-learn", "Streamlit", "NLP", "Pandas"]
+    },
+    {
+      "label": "DevOps & Core",
+      "items": ["Git", "Docker", "GitHub Actions", "Linux", "CI/CD", "Data Structures"]
     }
   ],
   "marquee": [
-    "TypeScript", "React", "Next.js", "Node.js", "Tailwind",
-    "Python", "MongoDB", "FastAPI", "Docker", "Git"
+    "Python", "TypeScript", "React", "Node.js", "FastAPI", "Apache Kafka", "Redis", "Docker", "LangChain", "scikit-learn", "PostgreSQL", "MongoDB"
   ]
 }

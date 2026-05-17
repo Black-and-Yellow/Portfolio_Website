@@ -1,5 +1,30 @@
 [
   {
+    "name": "LS-FLSTSVM Imbalance Learning",
+    "description": "Designed a high-performance machine learning implementation for solving imbalanced binary classification tasks.\nLeveraged Least Squares Fuzzy Twin Support Vector Machines (LS-FLSTSVM) and LSSMO solver in Python.\nAchieved over 90% accuracy on breast cancer datasets, effectively down-weighting noisy minority class samples.",
+    "github": "https://github.com/Black-and-Yellow/ML-Project-",
+    "live": "",
+    "techStack": [
+      "Python",
+      "scikit-learn",
+      "numpy",
+      "scipy",
+      "Streamlit",
+      "pandas"
+    ],
+    "images": [],
+    "category": "ML Project",
+    "status": "Completed",
+    "date": "2024",
+    "featured": true,
+    "thumbnail": "",
+    "gradient": "from-pink-500/20 to-rose-600/5",
+    "repoName": "ML-Project-",
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-05-17T15:12:44.818Z"
+  },
+  {
     "name": "Tamil NLP Classification",
     "description": "Built a comprehensive NLP text classification pipeline tailored specifically for the Tamil language.\nImplemented TF-IDF vectorization and trained Naive Bayes, SVM, and Logistic Regression models from scratch.\nDelivered robust news category prediction and sentiment analysis, successfully navigating low-resource language constraints.",
     "github": "https://github.com/Black-and-Yellow/NLP_project",
@@ -22,7 +47,7 @@
     "repoName": "NLP_project",
     "stars": 0,
     "language": "",
-    "updatedAt": "2026-05-17T15:06:14.694Z"
+    "updatedAt": "2026-05-17T15:12:44.818Z"
   },
   {
     "name": "Kafka Chat Application",
@@ -47,7 +72,7 @@
     "repoName": "Kafka-chat-application",
     "stars": 0,
     "language": "",
-    "updatedAt": "2026-05-17T15:06:14.693Z"
+    "updatedAt": "2026-05-17T15:12:44.817Z"
   },
   {
     "name": "Meta-Agent Framework",
@@ -72,32 +97,7 @@
     "repoName": "meta-agent-framework",
     "stars": 0,
     "language": "",
-    "updatedAt": "2026-05-17T15:06:14.693Z"
-  },
-  {
-    "name": "LS-FLSTSVM Imbalance Learning",
-    "description": "Designed a high-performance machine learning implementation for solving imbalanced binary classification tasks.\nLeveraged Least Squares Fuzzy Twin Support Vector Machines (LS-FLSTSVM) and LSSMO solver in Python.\nAchieved over 90% accuracy on breast cancer datasets, effectively down-weighting noisy minority class samples.",
-    "github": "https://github.com/Black-and-Yellow/ML-Project-",
-    "live": "",
-    "techStack": [
-      "Python",
-      "scikit-learn",
-      "numpy",
-      "scipy",
-      "Streamlit",
-      "pandas"
-    ],
-    "images": [],
-    "category": "ML Project",
-    "status": "Completed",
-    "date": "2024",
-    "featured": true,
-    "thumbnail": "",
-    "gradient": "from-pink-500/20 to-rose-600/5",
-    "repoName": "ML-Project-",
-    "stars": 0,
-    "language": "",
-    "updatedAt": "2026-05-17T15:06:14.693Z"
+    "updatedAt": "2026-05-17T15:12:44.817Z"
   },
   {
     "name": "Collaborative Code Editor",
@@ -122,7 +122,7 @@
     "repoName": "CODE-EDITOR",
     "stars": 0,
     "language": "",
-    "updatedAt": "2026-05-17T15:06:14.692Z"
+    "updatedAt": "2026-05-17T15:12:44.816Z"
   },
   {
     "name": "CargoLink",
@@ -148,6 +148,6 @@
     "repoName": "CargoLink",
     "stars": 0,
     "language": "",
-    "updatedAt": "2026-05-17T15:06:14.691Z"
+    "updatedAt": "2026-05-17T15:12:44.815Z"
   }
 ]
