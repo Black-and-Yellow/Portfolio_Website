@@ -1,0 +1,21 @@
+{
+  "name": "Muthuraja S",
+  "title": "Computer Science Student & Full-Stack Developer",
+  "tagline": "A Computer Science student at IIIT Sri City and full-stack developer crafting efficient, scalable web applications with a strong eye for design.",
+  "bio": "I build thoughtful web applications — from secure authentication flows to admin dashboards — with a focus on clean architecture and a designer's sensibility for the details.",
+  "bio2": "Currently serving as WebDev Lead and Design Team Core at Nexsync, IIIT Sri City — shipping web projects, mentoring developers, and crafting visual content for events.",
+  "location": "Sricity, AP",
+  "role": "Full-Stack Dev",
+  "education": "IIIT Sri City",
+  "status": "Open to work",
+  "email": "muthuoffl6@gmail.com",
+  "phone": "+91 93609 44839",
+  "address": "Tada, Sricity, AP",
+  "github": "https://github.com/Black-and-Yellow",
+  "linkedin": "https://www.linkedin.com/in/muthuraja-s-6798b0314",
+  "stats": [
+    { "value": "2+", "label": "Years building" },
+    { "value": "3+", "label": "Leadership roles" },
+    { "value": "2+", "label": "Hackathons" }
+  ]
+}

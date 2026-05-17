@@ -1,0 +1,17 @@
+{
+  "name": "My Project Name",
+  "description": "A brief description of what this project does and the problem it solves.",
+  "github": "https://github.com/Black-and-Yellow/repo-name",
+  "live": "https://your-deployed-url.com",
+  "techStack": [
+    "React",
+    "FastAPI",
+    "PostgreSQL"
+  ],
+  "featured": true,
+  "thumbnail": "https://url-to-screenshot-or-preview.png",
+  "status": "Completed",
+  "category": "Web App",
+  "date": "2025",
+  "gradient": "from-violet-500/20 to-purple-600/5"
+}

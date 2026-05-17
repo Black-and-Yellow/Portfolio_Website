@@ -1,0 +1,33 @@
+[
+  {
+    "id": "webdev-lead",
+    "period": "Sep 2024 — Present",
+    "role": "WebDev Lead",
+    "org": "Nexsync · IIIT Sri City",
+    "bullets": [
+      "Lead web development projects using modern frameworks",
+      "Mentor junior developers in engineering best practices",
+      "Coordinate with design for seamless implementation"
+    ]
+  },
+  {
+    "id": "design-core",
+    "period": "Sep 2024 — Present",
+    "role": "Design Team Core",
+    "org": "Nexsync · IIIT Sri City",
+    "bullets": [
+      "Designed posters, banners, and visual identity systems",
+      "Created visual content for technical and cultural events",
+      "Maintained design consistency across all materials"
+    ]
+  },
+  {
+    "id": "btech",
+    "period": "2023 — Present",
+    "role": "B.Tech, Computer Science",
+    "org": "IIIT Sri City",
+    "bullets": [
+      "Focused on full-stack development and software engineering."
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "name": "CargoLink",
+    "description": "Full-stack logistics platform connecting transporters and shippers with role-based authentication and a comprehensive admin dashboard.",
+    "github": "https://github.com/Black-and-Yellow/cargolink",
+    "live": "",
+    "techStack": ["Node.js", "MongoDB", "Express", "JavaScript"],
+    "images": [],
+    "category": "Logistics Platform",
+    "status": "Completed",
+    "date": "2024",
+    "featured": true,
+    "gradient": "from-amber-500/20 to-orange-600/5"
+  },
+  {
+    "name": "Portfolio",
+    "description": "Responsive portfolio site showcasing projects, skills, and experience — built with custom animations and a considered visual system.",
+    "github": "https://github.com/Black-and-Yellow/Portfolio_Website",
+    "live": "https://black-and-yellow.github.io/Portfolio_Website/",
+    "techStack": ["React", "Tailwind", "Motion"],
+    "images": [],
+    "category": "Personal Website",
+    "status": "Active",
+    "date": "2024",
+    "featured": true,
+    "gradient": "from-sky-500/20 to-indigo-600/5"
+  }
+]

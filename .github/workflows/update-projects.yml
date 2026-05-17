@@ -1,0 +1,210 @@
+# ─────────────────────────────────────────────────────────────────
+# Automated Portfolio Project Discovery
+#
+# HOW IT WORKS:
+#   1. Runs daily at midnight UTC (or manually triggered)
+#   2. Scans ALL public repos under your GitHub account
+#   3. For each repo containing info.json at the root, downloads it
+#   4. Aggregates all discovered metadata into generated_projects.json
+#   5. Commits the file → triggers the build workflow → portfolio updates
+#
+# SETUP REQUIRED:
+#   Go to: Settings → Secrets and variables → Actions → New repository secret
+#   Name:  PROJECTS_PAT
+#   Value: A GitHub Personal Access Token with scope: public_repo (read:org optional)
+#   Create at: https://github.com/settings/tokens/new
+#
+# ADD info.json TO ANY REPO:
+#   {
+#     "name": "My Project",
+#     "description": "What it does",
+#     "github": "https://github.com/you/repo",
+#     "live": "https://your-deployed-url.com",
+#     "techStack": ["React", "FastAPI"],
+#     "featured": true,
+#     "thumbnail": "https://url-to-image.png",
+#     "status": "Completed",
+#     "category": "AI / Web",
+#     "date": "2025"
+#   }
+# ─────────────────────────────────────────────────────────────────
+
+name: Update Projects from GitHub
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # Every day at midnight UTC
+  workflow_dispatch:        # Manual trigger from Actions tab
+
+permissions:
+  contents: write           # Needed to commit generated_projects.json
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout portfolio repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PROJECTS_PAT || secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Discover and aggregate info.json files
+        env:
+          GH_TOKEN: ${{ secrets.PROJECTS_PAT || secrets.GITHUB_TOKEN }}
+          GH_USERNAME: "Black-and-Yellow"
+        run: |
+          node - <<'EOF'
+          const https = require('https');
+          const fs = require('fs');
+
+          const USERNAME = process.env.GH_USERNAME;
+          const TOKEN = process.env.GH_TOKEN;
+
+          function apiGet(path) {
+            return new Promise((resolve, reject) => {
+              const options = {
+                hostname: 'api.github.com',
+                path,
+                method: 'GET',
+                headers: {
+                  'Authorization': `Bearer ${TOKEN}`,
+                  'User-Agent': 'portfolio-updater',
+                  'Accept': 'application/vnd.github.v3+json',
+                  'X-GitHub-Api-Version': '2022-11-28',
+                },
+              };
+
+              const req = https.request(options, (res) => {
+                let data = '';
+                res.on('data', chunk => data += chunk);
+                res.on('end', () => {
+                  try {
+                    resolve({ status: res.statusCode, body: JSON.parse(data) });
+                  } catch {
+                    resolve({ status: res.statusCode, body: data });
+                  }
+                });
+              });
+              req.on('error', reject);
+              req.end();
+            });
+          }
+
+          async function getAllRepos() {
+            const repos = [];
+            let page = 1;
+            while (true) {
+              const res = await apiGet(`/users/${USERNAME}/repos?per_page=100&page=${page}&type=public`);
+              if (!Array.isArray(res.body) || res.body.length === 0) break;
+              repos.push(...res.body);
+              if (res.body.length < 100) break;
+              page++;
+            }
+            console.log(`Found ${repos.length} public repositories.`);
+            return repos;
+          }
+
+          async function getInfoJson(repoName) {
+            const res = await apiGet(`/repos/${USERNAME}/${repoName}/contents/info.json`);
+            if (res.status !== 200 || !res.body.content) return null;
+            try {
+              const content = Buffer.from(res.body.content, 'base64').toString('utf-8');
+              return JSON.parse(content);
+            } catch {
+              return null;
+            }
+          }
+
+          (async () => {
+            const repos = await getAllRepos();
+            const projects = [];
+            const errors = [];
+
+            for (const repo of repos) {
+              // Skip forks and archived repos (optional: remove to include)
+              if (repo.fork || repo.archived) continue;
+
+              const info = await getInfoJson(repo.name);
+              if (!info) continue;
+
+              console.log(`✓ Found info.json in: ${repo.name}`);
+
+              // Merge GitHub API data as fallbacks
+              const project = {
+                name: info.name || repo.name,
+                description: info.description || repo.description || '',
+                github: info.github || repo.html_url,
+                live: info.live || repo.homepage || '',
+                techStack: Array.isArray(info.techStack) ? info.techStack : [],
+                images: Array.isArray(info.images) ? info.images : [],
+                category: info.category || '',
+                status: info.status || 'Active',
+                date: info.date || String(new Date(repo.created_at).getFullYear()),
+                featured: info.featured === true,
+                thumbnail: info.thumbnail || '',
+                gradient: info.gradient || 'from-amber-500/20 to-orange-600/5',
+                repoName: repo.name,
+                stars: repo.stargazers_count || 0,
+                language: repo.language || '',
+                updatedAt: repo.pushed_at || repo.updated_at,
+              };
+
+              projects.push(project);
+            }
+
+            // Sort: featured first, then by updatedAt desc
+            projects.sort((a, b) => {
+              if (a.featured && !b.featured) return -1;
+              if (!a.featured && b.featured) return 1;
+              return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+            });
+
+            const outputPath = 'src/data/generated_projects.json';
+            fs.writeFileSync(outputPath, JSON.stringify(projects, null, 2));
+            console.log(`\n✅ Written ${projects.length} projects to ${outputPath}`);
+            if (errors.length > 0) {
+              console.warn(`⚠️ Errors: ${errors.join(', ')}`);
+            }
+          })();
+          EOF
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet src/data/generated_projects.json && \
+            echo "changed=false" >> $GITHUB_OUTPUT || \
+            echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit updated projects
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/generated_projects.json
+          PROJECTS_COUNT=$(node -e "const d=require('./src/data/generated_projects.json'); console.log(d.length)")
+          git commit -m "chore: auto-update projects [${PROJECTS_COUNT} projects] [skip ci]"
+          git push
+
+      - name: Trigger portfolio build
+        if: steps.check_changes.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PROJECTS_PAT || secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'static.yml',
+              ref: 'main',
+            });
+            console.log('✅ Triggered portfolio build workflow');
+
+      - name: No changes detected
+        if: steps.check_changes.outputs.changed == 'false'
+        run: echo "✅ No changes to projects — skipping commit and build."

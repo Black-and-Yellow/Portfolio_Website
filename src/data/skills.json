@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "label": "Languages",
+      "items": ["C", "Java", "Python", "JavaScript"]
+    },
+    {
+      "label": "Web",
+      "items": ["HTML/CSS", "Node.js", "Express.js", "Git/GitHub"]
+    },
+    {
+      "label": "Databases",
+      "items": ["MySQL", "MongoDB"]
+    },
+    {
+      "label": "Coursework",
+      "items": ["DBMS", "OOP", "Operating Systems", "Computer Networks", "Data Structures"]
+    }
+  ],
+  "marquee": [
+    "JavaScript", "React", "Node.js", "MongoDB", "Express",
+    "Python", "Tailwind", "MySQL", "Git", "Java"
+  ]
+}
