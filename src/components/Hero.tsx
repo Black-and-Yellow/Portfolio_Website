@@ -107,7 +107,7 @@ export default function Hero() {
                   <span className="inline-block">a</span>
                 </span>
                 <span className="mt-2 flex items-end justify-between gap-4 text-[18vw] leading-[0.82] tracking-[-0.04em] md:text-[13rem]">
-                  <span className="stencil-outline">S.</span>
+                  <span>S.</span>
                   <span className="hidden font-sans text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground md:block md:pb-10">&rarr; Scroll</span>
                 </span>
               </h1>

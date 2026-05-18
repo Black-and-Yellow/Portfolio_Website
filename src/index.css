@@ -133,7 +133,7 @@
     @apply border-t border-ink;
   }
   .stencil-outline {
-    -webkit-text-stroke: 1px currentColor;
+    -webkit-text-stroke: 0.03em currentColor;
     color: transparent;
   }
   .halftone {
