@@ -1,5 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <circle cx="16" cy="16" r="16" fill="#0a0a0a"/>
-  <circle cx="10" cy="16" r="4" fill="#e5a83b"/>
-  <text x="16" y="21" font-family="Georgia,serif" font-size="14" font-style="italic" fill="#e5a83b" text-anchor="middle">.S</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Transparent background, designed for dark themes like #0f0f0f -->
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6b00" />
+      <stop offset="100%" stop-color="#ff8c33" />
+    </linearGradient>
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Outer orbital rings for a futuristic/intelligent feel -->
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#ff6b00" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="8, 4"/>
+  <circle cx="50" cy="50" r="34" fill="none" stroke="#ff6b00" stroke-width="1" stroke-opacity="0.3" />
+  
+  <!-- Geometric neural/code node structure (Hexagon base) -->
+  <path d="M 50 22 L 74 36 L 74 64 L 50 78 L 26 64 L 26 36 Z" fill="none" stroke="url(#brandGradient)" stroke-width="3" stroke-linejoin="round" filter="url(#subtleGlow)"/>
+  
+  <!-- Internal network connections -->
+  <line x1="26" y1="36" x2="50" y2="50" stroke="#ff6b00" stroke-width="2" stroke-opacity="0.8"/>
+  <line x1="74" y1="36" x2="50" y2="50" stroke="#ff6b00" stroke-width="2" stroke-opacity="0.8"/>
+  <line x1="50" y1="78" x2="50" y2="50" stroke="#ff6b00" stroke-width="2" stroke-opacity="0.8"/>
+  
+  <!-- Central processing node -->
+  <circle cx="50" cy="50" r="5" fill="#ff6b00" filter="url(#subtleGlow)" />
+  
+  <!-- Satellite nodes at intersections -->
+  <circle cx="26" cy="36" r="3" fill="#ff8c33" />
+  <circle cx="74" cy="36" r="3" fill="#ff8c33" />
+  <circle cx="50" cy="78" r="3" fill="#ff8c33" />
+  <circle cx="50" cy="22" r="3" fill="#ff8c33" />
+  <circle cx="26" cy="64" r="3" fill="#ff8c33" />
+  <circle cx="74" cy="64" r="3" fill="#ff8c33" />
 </svg>

@@ -1,216 +1,79 @@
-# Cyberpunk Portfolio Website
+# Muthuraja S — Professional Portfolio
 
-A modern, responsive portfolio website featuring a cyberpunk aesthetic with red and black color scheme, 3D backgrounds, and smooth animations.
+A modern, high-performance portfolio website built to showcase my projects, technical skills, and professional experience. Designed with a clean, editorial aesthetic and powered by a data-driven React architecture.
 
-![Portfolio Preview](public/img/preview.png)
+## 🚀 Features
 
-## Features
+- **Modern Tech Stack**: Built with React, TypeScript, Vite, and Tailwind CSS for optimal performance and developer experience.
+- **Data-Driven Architecture**: All portfolio content (projects, experience, skills) is dynamically driven by structured JSON metadata, ensuring easy maintenance and scalability.
+- **Automated Updates**: Integrates with GitHub Actions to automatically pull project metadata (`info.json`) across repositories, keeping the portfolio automatically up to date.
+- **High Performance**: Optimized for speed, achieving top Lighthouse scores with minimal bundle sizes and fast page loads.
+- **Fully Responsive**: Seamlessly adapts across all devices, from desktop monitors to mobile screens.
+- **Subtle Animations**: Uses Framer Motion for smooth, professional micro-interactions and page transitions.
 
-### Visual Design
-- **Cyberpunk Theme**: Sleek red and black color scheme with neon glow effects
-- **3D Background**: Interactive Vanta.js Globe on desktop (disabled on mobile for performance)
-- **Custom Cursor**: Animated cursor with hover effects on resume and timeline pages
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Typography**: Premium fonts including Orbitron and Rajdhani
+## 💻 Tech Stack
 
-### Animations
-- **H1 Typewriter Effect**: Simple, lightweight typing animation on all pages
-- **Smooth Transitions**: Hover effects and page transitions
-- **Performance Optimized**: Respects user's reduced motion preferences
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Language**: TypeScript / JavaScript
 
-### Mobile Optimization
-- **Plain Black Background**: 3D effects disabled on mobile for better performance
-- **Touch-Friendly**: Optimized navigation and button sizes
-- **Fast Loading**: Minimal JavaScript for mobile users
-
-### 🛠Technical Features
-- **Clean Codebase**: Removed all unused animations and bloated code
-- **Semantic HTML**: Proper structure and accessibility
-- **Modern CSS**: CSS Grid, Flexbox, and custom properties
-- **Vanilla JavaScript**: No heavy frameworks, pure performance
-- **Cross-Browser**: Support for all modern browsers
-
-## Project Structure
+## 📁 Project Structure
 
 ```
-project/
-├── index.html                 # Homepage with 3D background
-├── about/
-│   └── index.html            # About page
-├── projects/
-│   └── index.html            # Projects showcase
-├── timeline/
-│   └── index.html            # Career timeline with custom cursor
-├── resume/
-│   └── index.html            # Resume page with custom cursor
-├── contact/
-│   └── index.html            # Contact form
-├── public/
-│   ├── css/
-│   │   └── main.css          # Main stylesheet (optimized)
-│   ├── js/
-│   │   ├── main.js           # Core functionality
-│   │   ├── simple-animations.js  # H1 typewriter effect
-│   │   └── contact.js        # Contact form handling
-│   └── img/
-│       ├── Profile.jpg       # Profile image
-│       └── P.png            # Logo
-├── _config.yml              # Jekyll configuration
-├── netlify.toml             # Netlify deployment config
-└── package.json             # Dependencies
+Portfolio_Website/
+├── public/                 # Static assets (images, PDFs, favicon)
+├── src/
+│   ├── components/         # Reusable React components (UI elements, Layouts)
+│   ├── data/               # JSON files containing portfolio content
+│   ├── hooks/              # Custom React hooks
+│   ├── App.tsx             # Main application component & routing
+│   ├── main.tsx            # Application entry point
+│   └── index.css           # Global styles and Tailwind configuration
+├── package.json            # Project dependencies and scripts
+└── vite.config.ts          # Vite configuration
 ```
 
-## � Getting Started
+## 🛠️ Local Development
 
-### Prerequisites
-- Web browser with JavaScript enabled
-- Local server for development (optional)
+To run this project locally, follow these steps:
 
-### Installation
-
-1. **Clone the repository**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/Black-and-Yellow/Portfolio_Website.git
-   cd Portfolio_Website/project
+   cd Portfolio_Website
    ```
 
-2. **Run locally** (optional)
+2. **Install dependencies:**
    ```bash
-   # Python 3
-   python -m http.server 8000
-   
-   # Node.js
-   npx serve .
-   
-   # PHP
-   php -S localhost:8000
+   npm install
    ```
 
-3. **Open in browser**
+3. **Start the development server:**
+   ```bash
+   npm run dev
    ```
-   http://localhost:8000
-   ```
 
-## Pages Overview
+4. **Open your browser:**
+   Navigate to `http://localhost:5173` to view the application.
 
-### Homepage (`index.html`)
-- **3D Globe Background**: Interactive Vanta.js animation (desktop only)
-- **Hero Section**: Introduction with typewriter effect
-- **Responsive Navigation**: Desktop and mobile-friendly menu
+## 🌐 Deployment
 
-### About (`about/index.html`)
-- **Personal Information**: Bio and background
-- **Skills Section**: Technical skills and expertise
-- **Clean Layout**: Focused on content
+This project is optimized for static deployment. You can easily deploy the `/dist` directory generated by running:
 
-### Projects (`projects/index.html`)
-- **Portfolio Showcase**: Featured projects and work
-- **Project Cards**: Interactive project previews
-- **External Links**: GitHub and live demo links
-
-### Timeline (`timeline/index.html`)
-- **Career Journey**: Professional timeline
-- **Custom Cursor**: Enhanced interaction with cyberpunk cursor
-- **Milestone Highlights**: Key career achievements
-
-### Resume (`resume/index.html`)
-- **Professional Resume**: Downloadable PDF version
-- **Custom Cursor**: Enhanced interaction effects
-- **Skills Matrix**: Technical and soft skills
-
-### Contact (`contact/index.html`)
-- **Contact Form**: Functional contact form
-- **Social Links**: Professional social media
-- **Location Info**: Contact details
-
-## Customization
-
-### Colors
-The cyberpunk theme uses CSS custom properties defined in `main.css`:
-
-```css
-:root {
-  --cyber-black: #000000;
-  --cyber-red: #ff0000;
-  --cyber-text: #e0e0e0;
-  --cyber-gray: #333333;
-  /* ... */
-}
+```bash
+npm run build
 ```
 
-### Fonts
-- **Orbitron**: Used for headings and navigation
-- **Rajdhani**: Used for body text
-- **Inter**: Used for clean content sections
+Currently deployed and accessible at: [muthuraja.tech](https://muthuraja.tech/)
 
-### 3D Background Configuration
-Modify the Vanta.js settings in `index.html`:
+## 📬 Contact
 
-```javascript
-VANTA.GLOBE({
-    color: 0xff0000,           // Primary color
-    backgroundColor: 0x000000,  // Background
-    size: 1.20,                // Globe size
-    speed: 1.0,                // Animation speed
-    // ... more options
-});
-```
-
-## Mobile Considerations
-
-### Performance Optimizations
-- **No 3D Effects**: Vanta.js disabled on mobile devices
-- **Simplified Animations**: Reduced motion for better performance
-- **Touch Navigation**: Mobile-optimized menu and interactions
-
-### Responsive Breakpoints
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## �️ Development
-
-### Recent Optimizations
-- Removed 5 unused JavaScript animation files
-- Cleaned up CSS from 800+ to 616 lines (23% reduction)
-- Fixed cursor animations on resume and timeline pages
-- Optimized navbar styling with proper fonts
-- Disabled 3D background on mobile for performance
-
-### Dependencies
-- **Vanta.js**: 3D background effects (desktop only)
-- **Three.js**: 3D rendering library
-- **Font Awesome**: Icons
-- **Google Fonts**: Orbitron, Rajdhani, Inter
-
-
-### GitHub Pages
-Compatible with GitHub Pages for static hosting.
-
-### Custom Server
-Can be hosted on any web server that supports static files.
-
-## Configuration Files
-
-- **`_config.yml`**: Jekyll configuration for GitHub Pages
-- **`package.json`**: Project dependencies and metadata
-
-
-## Author
-
-**Your Name**
-- GitHub: [@Black-and-Yellow](https://github.com/Black-and-Yellow)
-- Portfolio: [Portfolio Website](https://muthuraja.tech/)
-
-## Acknowledgments
-
-- **Vanta.js** for amazing 3D background effects
-- **Three.js** for 3D rendering capabilities
-- **Font Awesome** for beautiful icons
-- **Google Fonts** for premium typography
+- **Email**: muthuoffl6@gmail.com
+- **LinkedIn**: [muthuraja-s-6798b0314](https://www.linkedin.com/in/muthuraja-s-6798b0314)
+- **GitHub**: [@Black-and-Yellow](https://github.com/Black-and-Yellow)
 
 ---
-
-**Star this repository if you found it helpful!**
-
-**Have questions?** Open an issue or reach out via the contact form.
+*Designed and built by Muthuraja S.*
