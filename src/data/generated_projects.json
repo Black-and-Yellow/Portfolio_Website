@@ -1,5 +1,30 @@
 [
   {
+    "name": "Kafka Chat Application",
+    "description": "Engineered a Signal-inspired real-time distributed chat application with highly durable message pipelines.\nImplemented using Node.js microservices, WebSockets, Kafka, PostgreSQL, and AES-256-GCM transport encryption.\nAchieved reliable delivery semantics with idempotent writes, dead-letter queues, and horizontally scalable gateways.",
+    "github": "https://github.com/Black-and-Yellow/Kafka-chat-application",
+    "live": "",
+    "techStack": [
+      "Node.js",
+      "Kafka",
+      "React",
+      "PostgreSQL",
+      "Docker",
+      "WebSockets"
+    ],
+    "images": [],
+    "category": "Full Stack",
+    "status": "Completed",
+    "date": "2025",
+    "featured": true,
+    "thumbnail": "",
+    "gradient": "from-orange-500/20 to-red-600/5",
+    "repoName": "Kafka-chat-application",
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-05-24T19:44:39Z"
+  },
+  {
     "name": "Meta-Agent Framework",
     "description": "Engineered an intelligent LLM orchestration framework that dynamically designs and executes specialized AI agents.\nConstructed using FastAPI, LangChain, LangGraph, Redis, and ChromaDB atop a graph-based execution runtime.\nAutomated complex pipelines by enabling autonomous system planning, resilient self-healing loops, and secure tool execution.",
     "github": "https://github.com/Black-and-Yellow/meta-agent-framework",
@@ -73,31 +98,6 @@
     "stars": 0,
     "language": "Python",
     "updatedAt": "2026-05-17T14:48:16Z"
-  },
-  {
-    "name": "Kafka Chat Application",
-    "description": "Engineered a Signal-inspired real-time distributed chat application with highly durable message pipelines.\nImplemented using Node.js microservices, WebSockets, Kafka, PostgreSQL, and AES-256-GCM transport encryption.\nAchieved reliable delivery semantics with idempotent writes, dead-letter queues, and horizontally scalable gateways.",
-    "github": "https://github.com/Black-and-Yellow/Kafka-chat-application",
-    "live": "",
-    "techStack": [
-      "Node.js",
-      "Kafka",
-      "React",
-      "PostgreSQL",
-      "Docker",
-      "WebSockets"
-    ],
-    "images": [],
-    "category": "Full Stack",
-    "status": "Completed",
-    "date": "2025",
-    "featured": true,
-    "thumbnail": "",
-    "gradient": "from-orange-500/20 to-red-600/5",
-    "repoName": "Kafka-chat-application",
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2026-05-17T14:48:13Z"
   },
   {
     "name": "Collaborative Code Editor",
