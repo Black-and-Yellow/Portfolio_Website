@@ -67,7 +67,7 @@ This project is optimized for static deployment. You can easily deploy the `/dis
 npm run build
 ```
 
-Currently deployed and accessible at: [muthuraja.tech](https://muthuraja.tech/)
+Currently deployed and accessible at: [muthuraja.dev](https://muthuraja.dev/)
 
 ## 📬 Contact
 

@@ -6,7 +6,7 @@
     },
     {
       "label": "Frontend & Real-time",
-      "items": ["React", "Tailwind CSS", "Monaco Editor", "Yjs", "WebSockets", "Framer Motion"]
+      "items": ["React", "Next.js", "Tailwind CSS", "Monaco Editor", "Yjs", "WebSockets", "Framer Motion"]
     },
     {
       "label": "Backend & Cloud",

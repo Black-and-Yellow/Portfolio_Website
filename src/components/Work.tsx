@@ -31,7 +31,7 @@ function mergeProjects(manual: Project[], generated: Project[]): Project[] {
     "Tamil NLP Classification",
     "Parallel Vehicle & Traffic Analysis",
     "Kafka Chat Application",
-    "Collaborative Code Editor"
+    "SheetSnap"
   ]
 
   return projects.sort((a, b) => {
